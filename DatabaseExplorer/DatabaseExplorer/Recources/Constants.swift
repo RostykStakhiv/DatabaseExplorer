@@ -1,0 +1,13 @@
+//
+//  Constants.swift
+//  DatabaseExplorer
+//
+//  Created by KindGeek on 1/15/18.
+//  Copyright © 2018 rstakhiv. All rights reserved.
+//
+
+import Foundation
+
+struct Constants {
+    static let lastCreatedObjectIDKey = "lastCreatedObjectID"
+}

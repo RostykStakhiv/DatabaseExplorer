@@ -7,11 +7,10 @@
         <relationship name="building" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Building" inverseName="address" inverseEntity="Building" syncable="YES"/>
     </entity>
     <entity name="Building" representedClassName="Building" isAbstract="YES" parentEntity="Object" syncable="YES">
-        <attribute name="square" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="building" inverseEntity="Address" syncable="YES"/>
     </entity>
     <entity name="College" representedClassName="College" parentEntity="EducationalDepartment" syncable="YES"/>
-    <entity name="Department" representedClassName="Department" parentEntity="EducationalDepartment" syncable="YES">
+    <entity name="Department" representedClassName="Department" parentEntity="Object" syncable="YES">
         <relationship name="faculty" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Faculty" inverseName="departments" inverseEntity="Faculty" syncable="YES"/>
         <relationship name="subjects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Subject" inverseName="department" inverseEntity="Subject" syncable="YES"/>
     </entity>
@@ -27,9 +26,9 @@
     </entity>
     <entity name="Group" representedClassName="Group" parentEntity="Object" syncable="YES">
         <relationship name="students" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Student" inverseName="group" inverseEntity="Student" syncable="YES"/>
+        <relationship name="subjects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Subject" inverseName="groups" inverseEntity="Subject" syncable="YES"/>
     </entity>
     <entity name="Object" representedClassName="Object" isAbstract="YES" syncable="YES">
-        <attribute name="classID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="createDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="majorID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -44,10 +43,13 @@
     <entity name="Student" representedClassName="Student" parentEntity="Person" syncable="YES">
         <relationship name="faculty" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Faculty" inverseName="students" inverseEntity="Faculty" syncable="YES"/>
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="students" inverseEntity="Group" syncable="YES"/>
+        <relationship name="subjects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Subject" inverseName="students" inverseEntity="Subject" syncable="YES"/>
     </entity>
     <entity name="Subject" representedClassName="Subject" parentEntity="Object" syncable="YES">
         <attribute name="numberOfHours" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="subjects" inverseEntity="Department" syncable="YES"/>
+        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group" inverseName="subjects" inverseEntity="Group" syncable="YES"/>
+        <relationship name="students" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Student" inverseName="subjects" inverseEntity="Student" syncable="YES"/>
         <relationship name="teacher" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Teacher" inverseName="subjects" inverseEntity="Teacher" syncable="YES"/>
     </entity>
     <entity name="Teacher" representedClassName="Teacher" parentEntity="Worker" syncable="YES">
@@ -58,26 +60,21 @@
     </entity>
     <entity name="Worker" representedClassName="Worker" parentEntity="Person" syncable="YES">
         <attribute name="salary" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="position" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WorkPosition" inverseName="worker" inverseEntity="WorkPosition" syncable="YES"/>
-    </entity>
-    <entity name="WorkPosition" representedClassName="WorkPosition" parentEntity="Object" syncable="YES">
-        <relationship name="worker" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Worker" inverseName="position" inverseEntity="Worker" syncable="YES"/>
     </entity>
     <elements>
         <element name="Address" positionX="7" positionY="90" width="128" height="103"/>
-        <element name="Building" positionX="-432" positionY="-180" width="128" height="73"/>
+        <element name="Building" positionX="-432" positionY="-180" width="128" height="60"/>
         <element name="College" positionX="-297" positionY="135" width="128" height="43"/>
-        <element name="Department" positionX="-522" positionY="153" width="128" height="73"/>
+        <element name="Department" positionX="-522" positionY="153" width="128" height="75"/>
         <element name="EducationalDepartment" positionX="-542" positionY="-9" width="128" height="90"/>
         <element name="Faculty" positionX="79" positionY="-12" width="128" height="90"/>
-        <element name="Group" positionX="448" positionY="96" width="128" height="60"/>
-        <element name="Object" positionX="-56" positionY="-141" width="128" height="118"/>
+        <element name="Group" positionX="448" positionY="96" width="128" height="75"/>
+        <element name="Object" positionX="-56" positionY="-141" width="128" height="105"/>
         <element name="Person" positionX="151" positionY="-261" width="128" height="103"/>
-        <element name="Student" positionX="268" positionY="-99" width="128" height="73"/>
-        <element name="Subject" positionX="-270" positionY="-57" width="128" height="90"/>
+        <element name="Student" positionX="268" positionY="-99" width="128" height="90"/>
+        <element name="Subject" positionX="-270" positionY="-57" width="128" height="120"/>
         <element name="Teacher" positionX="268" positionY="144" width="128" height="58"/>
         <element name="University" positionX="-92" positionY="-234" width="128" height="60"/>
-        <element name="Worker" positionX="151" positionY="231" width="128" height="73"/>
-        <element name="WorkPosition" positionX="-153" positionY="231" width="128" height="60"/>
+        <element name="Worker" positionX="151" positionY="231" width="128" height="60"/>
     </elements>
 </model>

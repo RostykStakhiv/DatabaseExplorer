@@ -9,11 +9,18 @@
 import Cocoa
 
 class ViewController: NSViewController {
+    
+    @IBOutlet private weak var contextMenu: NSMenu!
 
+    private lazy var rootObjects: [Object] = {
+        return DataModel.shared.fetchRootObjects()
+    }()
+    
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupContextMenu()
     }
 
     override var representedObject: Any? {
@@ -21,30 +28,70 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
+    
+    //MARK: Private Methods
+    private func setupContextMenu() {
+        self.view.menu = contextMenu
+    }
+    
+    //MARK: Menu Handling
+    @IBAction func handleAddMenuButton(_ item: NSMenuItem) {
+        let person = DataModel.shared.emptyObject(name: "Person", context: nil) as! Person
+        person.name = "Person"
+        person.firstName = "Ivan"
+        person.lastName = "Ivanov"
+        person.sex = true
+        
+        let insertSuccess = DataModel.shared.insertObject(withModel: person)
+        print(insertSuccess)
+    }
+    
+    @IBAction func handleShowInfoMenuButton(_ item: NSMenuItem) {
+        
+    }
+    
+    @IBAction func handleEditMenuButton(_ item: NSMenuItem) {
+        
+    }
 }
 
-//extension ViewController: NSOutlineViewDataSource {
-//    func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-//        return DataModel.shared.fetchUniversities().count
-//    }
-//
-//    func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-//        if let feed = item as? Feed {
-//            return feed.children[index]
-//        }
-//
-//        return feeds[index]
-//    }
-//
-//    func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
-//        if let feed = item as? Feed {
-//            return feed.children.count > 0
-//        }
-//
-//        return false
-//    }
-//}
-//
+extension ViewController: NSMenuDelegate {
+    
+}
+
+extension ViewController: NSOutlineViewDataSource {
+    func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
+        if item == nil {
+            return rootObjects.count
+        } else {
+            guard let object = item as? Object else {
+                return 0
+            }
+            
+            return DataModel.shared.fetchChildrenForObjectWithID(object.uniqueID).count
+        }
+    }
+
+    func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
+        if item == nil {
+            return rootObjects[index]
+        } else {
+            let object = item as! Object
+            let childrenOfItem = DataModel.shared.fetchChildrenForObjectWithID(object.uniqueID)
+            return childrenOfItem[index]
+        }
+    }
+
+    func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
+        guard let object = item as? Object else {
+            return false
+        }
+        
+        let children = DataModel.shared.fetchChildrenForObjectWithID(object.uniqueID)
+        return children.count > 0
+    }
+}
+
 //extension ViewController: NSOutlineViewDelegate {
 //    func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
 //        var view: NSTableCellView?

@@ -14,6 +14,8 @@ class DataModel {
     
     static let shared = DataModel()
     
+    private(set) var lastCreatedObjectID: Int64 = UserDefaults.standard.value(forKey: Constants.lastCreatedObjectIDKey) as? Int64 ?? 0
+    
     private init() {
     }
     
@@ -95,9 +97,13 @@ class DataModel {
     
     
     //MARK: Private Methods
-    private func recycleUniqueEntity(entity: ModelMapper.Type, id: Int) -> Any? {
+    private func recycleUniqueEntity(entity: Object, id: Int64) -> Any? {
         guard let fetchedEntity = fetchUniqueEntity(request: entity.fetchRequest(id: id)) else {
-            return emptyObject(name: entity.entityName)
+            guard let entityName = entity.entity.name else {
+                return nil
+            }
+            
+            return emptyObject(name: entityName, context: managedObjectContext)
         }
         
         return fetchedEntity
@@ -130,20 +136,61 @@ class DataModel {
         return nil
     }
     
-    private func remove(entity: ModelMapper.Type){
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity.entityName)
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        
-        do {
-            _ = try persistentStoreCoordinator.execute(deleteRequest, with: managedObjectContext)
-            managedObjectContext.reset()
-        } catch _ as NSError {
-            // TODO: handle the error
-        }
+    //MARK: Insertion
+    func emptyObject(name: String, context: NSManagedObjectContext?) -> NSManagedObject {
+        let entity = NSEntityDescription.entity(forEntityName: name, in: managedObjectContext)!
+        return NSManagedObject(entity:entity, insertInto: context)
     }
     
-    private func emptyObject(name: String) -> NSManagedObject {
-        let entity = NSEntityDescription.entity(forEntityName: name, in: managedObjectContext)!
-        return NSManagedObject(entity:entity, insertInto:managedObjectContext)
+    func insertObject<T: Object>(withModel objectModel: T) -> Bool {
+        guard let entityName = objectModel.entity.name, let insertedObject = self.emptyObject(name: entityName, context: managedObjectContext) as? T else {
+            return false
+        }
+        
+        guard insertedObject.parseWithModel(objectModel) else {
+            managedObjectContext.delete(insertedObject)
+            return false
+        }
+        
+        insertedObject.uniqueID = self.lastCreatedObjectID
+        lastCreatedObjectID = lastCreatedObjectID + 1
+        insertedObject.createDate = Date() as NSDate
+        
+        return true
+    }
+    
+//    func insertUniversityWithModel(_ universityModel: University) {
+//        guard let insertedUniversity = self.emptyObject(name: universityModel.entity.name!) as? University else {
+//            return
+//        }
+//
+//        guard insertedUniversity.parseWithModel(universityModel) else {
+//            managedObjectContext.delete(insertedUniversity)
+//        }
+//    }
+//
+//    func insertAddressWithModel(_ addressModel: Address) {
+//        guard let insertedAddress = self.emptyObject(name: addressModel.entity.name!) as? Address else {
+//            return
+//        }
+//
+//        guard insertedAddress.parseWithModel(addressModel) else {
+//            managedObjectContext.delete(insertedAddress)
+//        }
+//    }
+    
+    //MARK: Fetching
+    func fetchRootObjects() -> [Object] {
+        let rootObjectsFetchRequest: NSFetchRequest<Object> = Object.fetchRequest()
+        rootObjectsFetchRequest.predicate = NSPredicate(format: "majorID == '\(0)'")
+        let results = self.fetchEntities(request: rootObjectsFetchRequest as! NSFetchRequest<NSFetchRequestResult>) as? [Object] ?? [Object]()
+        return results
+    }
+    
+    func fetchChildrenForObjectWithID(_ objectID: Int64) -> [Object] {
+        let objectFetchRequest: NSFetchRequest<Object> = Object.fetchRequest()
+        objectFetchRequest.predicate = NSPredicate(format: "majorID == '\(objectID)'")
+        let results = self.fetchEntities(request: objectFetchRequest as! NSFetchRequest<NSFetchRequestResult>) as? [Object] ?? [Object]()
+        return results
     }
 }

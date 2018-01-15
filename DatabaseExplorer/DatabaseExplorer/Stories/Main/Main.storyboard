@@ -168,13 +168,13 @@
                             <stackView distribution="fillProportionally" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O8o-KH-XKo">
                                 <rect key="frame" x="0.0" y="0.0" width="803" height="400"/>
                                 <subviews>
-                                    <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owu-pl-bK6">
+                                    <scrollView autohidesScrollers="YES" horizontalLineScroll="38" horizontalPageScroll="10" verticalLineScroll="38" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owu-pl-bK6">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
                                         <clipView key="contentView" id="jFl-fD-h9q">
                                             <rect key="frame" x="1" y="1" width="298" height="398"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="GzZ-Rt-DmA" id="CQF-S8-9WR">
+                                                <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowHeight="36" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="GzZ-Rt-DmA" id="CQF-S8-9WR">
                                                     <rect key="frame" x="0.0" y="0.0" width="298" height="398"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -195,11 +195,11 @@
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
                                                                 <tableCellView id="1fX-Ge-Bsq">
-                                                                    <rect key="frame" x="1" y="1" width="295" height="17"/>
+                                                                    <rect key="frame" x="1" y="1" width="295" height="36"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5V2-Eb-01E">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="295" height="17"/>
+                                                                            <rect key="frame" x="0.0" y="19" width="295" height="17"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="fgk-ca-TcD">
                                                                                 <font key="font" metaFont="system"/>
@@ -215,6 +215,10 @@
                                                             </prototypeCellViews>
                                                         </tableColumn>
                                                     </tableColumns>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="XfG-lQ-9wD" id="dcD-1o-BXi"/>
+                                                        <outlet property="delegate" destination="XfG-lQ-9wD" id="fBp-DC-gNQ"/>
+                                                    </connections>
                                                 </outlineView>
                                             </subviews>
                                         </clipView>
@@ -259,10 +263,38 @@
                             <constraint firstAttribute="trailing" secondItem="O8o-KH-XKo" secondAttribute="trailing" id="hr9-7M-XGY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contextMenu" destination="2IN-8u-oVU" id="Ppc-BS-L0P"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <menu id="2IN-8u-oVU">
+                    <items>
+                        <menuItem title="Add" id="Wmq-Es-gAE">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="handleAddMenuButton:" target="XfG-lQ-9wD" id="REw-YS-ox8"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Show Info" id="rkb-cA-T8J">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="handleShowInfoMenuButton:" target="XfG-lQ-9wD" id="Ei4-vc-laF"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Edit" id="VYj-Z1-IL1">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="handleEditMenuButton:" target="XfG-lQ-9wD" id="WGb-2t-Ttm"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                    <connections>
+                        <outlet property="delegate" destination="XfG-lQ-9wD" id="SpB-Pj-0ar"/>
+                    </connections>
+                </menu>
             </objects>
-            <point key="canvasLocation" x="130" y="775"/>
+            <point key="canvasLocation" x="130" y="896"/>
         </scene>
     </scenes>
 </document>
