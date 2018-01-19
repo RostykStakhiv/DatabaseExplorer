@@ -41,7 +41,6 @@
 		871C6EAE200C9E23009619FF /* Department+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C6E92200C9E23009619FF /* Department+CoreDataProperties.swift */; };
 		871C6EB3200C9F6D009619FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C6EB1200C9F6D009619FF /* ViewController.swift */; };
 		871C6EB4200C9F6D009619FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 871C6EB2200C9F6D009619FF /* Main.storyboard */; };
-		871C6EB7200CC67D009619FF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 871C6EB6200CC67D009619FF /* Info.plist */; };
 		871C6EB9200CC689009619FF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C6EB8200CC689009619FF /* Constants.swift */; };
 /* End PBXBuildFile section */
 
@@ -264,7 +263,6 @@
 			files = (
 				84EEF5531F8931EC00377293 /* Assets.xcassets in Resources */,
 				871C6EB4200C9F6D009619FF /* Main.storyboard in Resources */,
-				871C6EB7200CC67D009619FF /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

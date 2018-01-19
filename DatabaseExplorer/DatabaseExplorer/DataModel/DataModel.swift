@@ -19,6 +19,18 @@ class DataModel {
     private init() {
     }
     
+    //MARK: Cache
+    private lazy var rootObjectsCache: [Object] = {
+        return self.getRootObjectsFromDatabase()
+    }()
+    
+    private lazy var objectsCache: [Object: [Object]] = {
+        var localObjects = [Object: [Object]]()
+        setChildrenForObjects(self.getRootObjectsFromDatabase(), inDict: &localObjects)
+        
+        return localObjects
+    }()
+    
     // MARK: Core Data Stack setup
     private lazy var managedObjectContext: NSManagedObjectContext = {
         
@@ -74,6 +86,18 @@ class DataModel {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return urls[urls.count-1]
     }()
+    
+    private func setChildrenForObjects(_ objects: [Object], inDict dict: inout [Object: [Object]]) {
+        for object in objects {
+            let children = fetchChildrenForObject(object)
+            
+            if children.count > 0 {
+                setChildrenForObjects(children, inDict: &dict)
+            }
+            
+            dict[object] = children
+        }
+    }
     
     // MARK: public
     func saveContext () {
@@ -159,38 +183,30 @@ class DataModel {
         return true
     }
     
-//    func insertUniversityWithModel(_ universityModel: University) {
-//        guard let insertedUniversity = self.emptyObject(name: universityModel.entity.name!) as? University else {
-//            return
-//        }
-//
-//        guard insertedUniversity.parseWithModel(universityModel) else {
-//            managedObjectContext.delete(insertedUniversity)
-//        }
-//    }
-//
-//    func insertAddressWithModel(_ addressModel: Address) {
-//        guard let insertedAddress = self.emptyObject(name: addressModel.entity.name!) as? Address else {
-//            return
-//        }
-//
-//        guard insertedAddress.parseWithModel(addressModel) else {
-//            managedObjectContext.delete(insertedAddress)
-//        }
-//    }
-    
     //MARK: Fetching
     func fetchRootObjects() -> [Object] {
-        let rootObjectsFetchRequest: NSFetchRequest<Object> = Object.fetchRequest()
-        rootObjectsFetchRequest.predicate = NSPredicate(format: "majorID == '\(0)'")
-        let results = self.fetchEntities(request: rootObjectsFetchRequest as! NSFetchRequest<NSFetchRequestResult>) as? [Object] ?? [Object]()
+        guard context.hasChanges == true else {
+            return rootObjectsCache
+        }
+        
+        let results = getRootObjectsFromDatabase()
+        rootObjectsCache = results
         return results
     }
     
-    func fetchChildrenForObjectWithID(_ objectID: Int64) -> [Object] {
+    func fetchChildrenForObject(_ object: Object) -> [Object] {
         let objectFetchRequest: NSFetchRequest<Object> = Object.fetchRequest()
-        objectFetchRequest.predicate = NSPredicate(format: "majorID == '\(objectID)'")
+        objectFetchRequest.predicate = NSPredicate(format: "majorID == '\(object.uniqueID)'")
         let results = self.fetchEntities(request: objectFetchRequest as! NSFetchRequest<NSFetchRequestResult>) as? [Object] ?? [Object]()
+        return results
+    }
+    
+    //MARK: Private Fetching
+    private func getRootObjectsFromDatabase() -> [Object] {
+        let rootObjectsFetchRequest: NSFetchRequest<Object> = Object.fetchRequest()
+        rootObjectsFetchRequest.predicate = NSPredicate(format: "majorID == '\(0)'")
+        let results = self.fetchEntities(request: rootObjectsFetchRequest as! NSFetchRequest<NSFetchRequestResult>) as? [Object] ?? [Object]()
+        
         return results
     }
 }
