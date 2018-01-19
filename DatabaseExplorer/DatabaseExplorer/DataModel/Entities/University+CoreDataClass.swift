@@ -14,6 +14,12 @@ import CoreData
 public class University: Building {
     
     //MARK: Overrides
+    override class var humanReadableEntityName: String {
+        get {
+            return "University"
+        }
+    }
+    
     override func parseWithModel(_ model: Object) -> Bool {
         guard super.parseWithModel(model), let universityModel = model as? University else {
             return false

@@ -42,6 +42,11 @@
 		871C6EB3200C9F6D009619FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C6EB1200C9F6D009619FF /* ViewController.swift */; };
 		871C6EB4200C9F6D009619FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 871C6EB2200C9F6D009619FF /* Main.storyboard */; };
 		871C6EB9200CC689009619FF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C6EB8200CC689009619FF /* Constants.swift */; };
+		87895258201208D300056C11 /* FormPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87895257201208D300056C11 /* FormPresenter.swift */; };
+		8789525A20120CDC00056C11 /* FormFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8789525920120CDC00056C11 /* FormFactory.swift */; };
+		8789526120120FCB00056C11 /* Forms.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8789525F20120FCB00056C11 /* Forms.storyboard */; };
+		87895263201214E600056C11 /* TypeSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87895262201214E600056C11 /* TypeSelectionVC.swift */; };
+		87895265201218C700056C11 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87895264201218C700056C11 /* Protocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +88,11 @@
 		871C6EB2200C9F6D009619FF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		871C6EB6200CC67D009619FF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		871C6EB8200CC689009619FF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		87895257201208D300056C11 /* FormPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormPresenter.swift; sourceTree = "<group>"; };
+		8789525920120CDC00056C11 /* FormFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFactory.swift; sourceTree = "<group>"; };
+		8789525F20120FCB00056C11 /* Forms.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Forms.storyboard; sourceTree = "<group>"; };
+		87895262201214E600056C11 /* TypeSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSelectionVC.swift; sourceTree = "<group>"; };
+		87895264201218C700056C11 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +112,7 @@
 				871C6E76200C9E23009619FF /* Entities */,
 				847533201FEF8C1600C60091 /* DatabaseExplorer.xcdatamodeld */,
 				8475331C1FEF8BEF00C60091 /* DataModel.swift */,
+				87895264201218C700056C11 /* Protocols.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -129,6 +140,8 @@
 				84EEF55D1F8931F900377293 /* DatabaseExplorer.entitlements */,
 				84EEF54B1F8931EC00377293 /* AppDelegate.swift */,
 				84EEF5521F8931EC00377293 /* Assets.xcassets */,
+				8789525D20120FCB00056C11 /* CustomUI */,
+				87895256201208D300056C11 /* Helpers */,
 				871C6EB5200CC67D009619FF /* Recources */,
 				871C6EAF200C9F6D009619FF /* Stories */,
 			);
@@ -194,6 +207,40 @@
 				871C6EB8200CC689009619FF /* Constants.swift */,
 			);
 			path = Recources;
+			sourceTree = "<group>";
+		};
+		87895256201208D300056C11 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				87895257201208D300056C11 /* FormPresenter.swift */,
+				8789525920120CDC00056C11 /* FormFactory.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8789525D20120FCB00056C11 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				8789525E20120FCB00056C11 /* Windows */,
+				8789526020120FCB00056C11 /* Views */,
+			);
+			path = CustomUI;
+			sourceTree = "<group>";
+		};
+		8789525E20120FCB00056C11 /* Windows */ = {
+			isa = PBXGroup;
+			children = (
+				87895262201214E600056C11 /* TypeSelectionVC.swift */,
+				8789525F20120FCB00056C11 /* Forms.storyboard */,
+			);
+			path = Windows;
+			sourceTree = "<group>";
+		};
+		8789526020120FCB00056C11 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84EEF5531F8931EC00377293 /* Assets.xcassets in Resources */,
+				8789526120120FCB00056C11 /* Forms.storyboard in Resources */,
 				871C6EB4200C9F6D009619FF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +329,7 @@
 				871C6EAD200C9E23009619FF /* Group+CoreDataClass.swift in Sources */,
 				871C6E98200C9E23009619FF /* Person+CoreDataClass.swift in Sources */,
 				871C6EA4200C9E23009619FF /* Building+CoreDataProperties.swift in Sources */,
+				87895258201208D300056C11 /* FormPresenter.swift in Sources */,
 				871C6EA0200C9E23009619FF /* Address+CoreDataProperties.swift in Sources */,
 				871C6EAC200C9E23009619FF /* Building+CoreDataClass.swift in Sources */,
 				8475331E1FEF8BEF00C60091 /* DataModel.swift in Sources */,
@@ -293,6 +342,7 @@
 				871C6EA5200C9E23009619FF /* Teacher+CoreDataProperties.swift in Sources */,
 				871C6E95200C9E23009619FF /* Object+CoreDataProperties.swift in Sources */,
 				871C6EAE200C9E23009619FF /* Department+CoreDataProperties.swift in Sources */,
+				8789525A20120CDC00056C11 /* FormFactory.swift in Sources */,
 				871C6E99200C9E23009619FF /* Subject+CoreDataClass.swift in Sources */,
 				871C6EA1200C9E23009619FF /* Address+CoreDataClass.swift in Sources */,
 				871C6EA6200C9E23009619FF /* Subject+CoreDataProperties.swift in Sources */,
@@ -304,7 +354,9 @@
 				871C6EAA200C9E23009619FF /* University+CoreDataProperties.swift in Sources */,
 				871C6E9C200C9E23009619FF /* University+CoreDataClass.swift in Sources */,
 				871C6E94200C9E23009619FF /* Group+CoreDataProperties.swift in Sources */,
+				87895263201214E600056C11 /* TypeSelectionVC.swift in Sources */,
 				871C6EA3200C9E23009619FF /* EducationalDepartment+CoreDataProperties.swift in Sources */,
+				87895265201218C700056C11 /* Protocols.swift in Sources */,
 				871C6EAB200C9E23009619FF /* Worker+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,7 +478,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rstakhiv.DatabaseExplorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -441,7 +493,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rstakhiv.DatabaseExplorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

@@ -12,5 +12,12 @@ import CoreData
 
 @objc(Group)
 public class Group: Object {
-
+    
+    //MARK: Overrides
+    override class var humanReadableEntityName: String {
+        get {
+            return "Group"
+        }
+    }
+    
 }

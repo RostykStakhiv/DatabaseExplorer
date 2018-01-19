@@ -14,6 +14,12 @@ import CoreData
 public class Person: Object {
     
     //MARK: Overrides
+    override class var humanReadableEntityName: String {
+        get {
+            return "Person"
+        }
+    }
+
     override func parseWithModel(_ model: Object) -> Bool {
         guard super.parseWithModel(model), let personModel = model as? Person else {
             return false
@@ -25,5 +31,4 @@ public class Person: Object {
         
         return true
     }
-
 }

@@ -12,5 +12,12 @@ import CoreData
 
 @objc(Subject)
 public class Subject: Object {
+    
+    //MARK: Overrides
+    override class var humanReadableEntityName: String {
+        get {
+            return "Subject"
+        }
+    }
 
 }

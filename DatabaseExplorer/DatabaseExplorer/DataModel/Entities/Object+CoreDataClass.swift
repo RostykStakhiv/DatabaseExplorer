@@ -12,6 +12,12 @@ import CoreData
 
 @objc(Object)
 public class Object: NSManagedObject {
+    
+    class var humanReadableEntityName: String {
+        get {
+            return "Object"
+        }
+    }
 
     func fetchRequest(id: Int64) -> NSFetchRequest<NSFetchRequestResult> {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Object.fetchRequest()

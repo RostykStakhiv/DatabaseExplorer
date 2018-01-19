@@ -12,5 +12,12 @@ import CoreData
 
 @objc(EducationalDepartment)
 public class EducationalDepartment: Building {
+    
+    //MARK: Overrides
+    override class var humanReadableEntityName: String {
+        get {
+            return "Educational Department"
+        }
+    }
 
 }
