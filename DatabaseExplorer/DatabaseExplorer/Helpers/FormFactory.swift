@@ -10,5 +10,7 @@ import Cocoa
 
 class FormFactory {
 
-    //class func 
+    class func createForm(forObjectType type: Object.Type) -> NSWindow {
+        return NSWindow()
+    }
 }

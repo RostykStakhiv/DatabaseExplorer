@@ -31,6 +31,7 @@ class FormPresenter {
     }
     
     class func presentObjectInfoForm(forObject object: Object, withAction action: ObjectDetailsFormAction) {
-        
+        let objectType = type(of: object)
+        let form = FormFactory.createForm(forObjectType: objectType)
     }
 }
