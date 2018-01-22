@@ -15,7 +15,8 @@ public class Object: NSManagedObject {
     
     class var humanReadableEntityName: String {
         get {
-            return "Object"
+            assertionFailure("Should be overriden in subclass!")
+            return ""
         }
     }
 

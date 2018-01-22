@@ -10,10 +10,9 @@
         <!--Window Controller-->
         <scene sceneID="3Ud-Kn-ZsY">
             <objects>
-                <windowController id="DhY-wT-I4t" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="TypeSelectionWC" id="DhY-wT-I4t" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="wbf-Xg-QXZ">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="117" y="1113" width="292" height="166"/>
                         <rect key="screenRect" x="-177" y="800" width="1920" height="1057"/>
                         <connections>
@@ -31,25 +30,17 @@
         <!--Type SelectionVC-->
         <scene sceneID="n3N-1u-F7e">
             <objects>
-                <viewController id="Qxe-Kq-ZYJ" customClass="TypeSelectionVC" customModule="DatabaseExplorer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TypeSelectionVC" id="Qxe-Kq-ZYJ" customClass="TypeSelectionVC" customModule="DatabaseExplorer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="5dN-SF-A83">
                         <rect key="frame" x="0.0" y="0.0" width="362" height="135"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8TJ-Xp-bo1">
                                 <rect key="frame" x="48" y="87" width="267" height="26"/>
-                                <popUpButtonCell key="cell" type="push" title="tem 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="cCz-uV-UaF" id="ZPB-57-KGW">
+                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="ZPB-57-KGW">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
-                                    <menu key="menu" id="UYt-Kj-7j6">
-                                        <items>
-                                            <menuItem title="tem 1" state="on" keyEquivalent="I" id="cCz-uV-UaF">
-                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                            </menuItem>
-                                            <menuItem title="Item 2" id="ghP-EV-c2G"/>
-                                            <menuItem title="Item 3" id="SIN-S0-Sh1"/>
-                                        </items>
-                                    </menu>
+                                    <menu key="menu" id="UYt-Kj-7j6"/>
                                 </popUpButtonCell>
                             </popUpButton>
                             <stackView distribution="equalSpacing" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nt9-eI-u2w">
@@ -78,7 +69,7 @@ Gw
 </string>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="dismissController:" target="Qxe-Kq-ZYJ" id="AN2-ne-GON"/>
+                                            <action selector="cancelTapped:" target="Qxe-Kq-ZYJ" id="EIU-yw-3ar"/>
                                         </connections>
                                     </button>
                                 </subviews>

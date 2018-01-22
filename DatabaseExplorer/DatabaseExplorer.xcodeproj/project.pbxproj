@@ -222,7 +222,6 @@
 			isa = PBXGroup;
 			children = (
 				8789525E20120FCB00056C11 /* Windows */,
-				8789526020120FCB00056C11 /* Views */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -234,13 +233,6 @@
 				8789525F20120FCB00056C11 /* Forms.storyboard */,
 			);
 			path = Windows;
-			sourceTree = "<group>";
-		};
-		8789526020120FCB00056C11 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

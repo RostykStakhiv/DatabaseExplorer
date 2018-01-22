@@ -19,5 +19,4 @@ public class College: EducationalDepartment {
             return "College"
         }
     }
-
 }

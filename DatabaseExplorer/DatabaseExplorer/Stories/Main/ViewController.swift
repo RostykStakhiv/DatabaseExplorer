@@ -35,15 +35,17 @@ class ViewController: NSViewController {
     
     //MARK: Menu Handling
     @IBAction func handleAddMenuButton(_ item: NSMenuItem) {
-        let person = DataModel.shared.emptyObject(name: "Person", context: nil) as! Person
-        person.name = "Person"
-        person.firstName = "Ivan"
-        person.lastName = "Ivanov"
-        person.sex = true
-        person.majorID = 6
+//        let person = DataModel.shared.emptyObject(name: "Person", context: nil) as! Person
+//        person.name = "Person"
+//        person.firstName = "Ivan"
+//        person.lastName = "Ivanov"
+//        person.sex = true
+//        person.majorID = 6
+//
+//        let insertSuccess = DataModel.shared.insertObject(withModel: person)
+//        print(insertSuccess)
         
-        let insertSuccess = DataModel.shared.insertObject(withModel: person)
-        print(insertSuccess)
+        FormPresenter.presentNewObjectTypeSelectionForm(forMajorObject: selectedObject)
     }
     
     @IBAction func handleShowInfoMenuButton(_ item: NSMenuItem) {
