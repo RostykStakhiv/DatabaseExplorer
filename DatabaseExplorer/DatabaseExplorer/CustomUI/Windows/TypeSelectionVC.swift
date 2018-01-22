@@ -15,7 +15,7 @@ class TypeSelectionVC: NSViewController {
     private var types = [Object.Type]()
     
     var majorObject: Object?
-    var completion: ((_ selectedType: Object.Type) -> Void)?
+    var completion: FormPresenter.TypeSelectionFormCompletion?
 
     //MARK: Lifecycle
     override func viewDidLoad() {

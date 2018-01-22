@@ -45,7 +45,9 @@ class ViewController: NSViewController {
 //        let insertSuccess = DataModel.shared.insertObject(withModel: person)
 //        print(insertSuccess)
         
-        FormPresenter.presentNewObjectTypeSelectionForm(forMajorObject: selectedObject)
+        FormPresenter.presentNewObjectTypeSelectionForm(forMajorObject: selectedObject, completion: { (selectedType) in
+            
+        })
     }
     
     @IBAction func handleShowInfoMenuButton(_ item: NSMenuItem) {
