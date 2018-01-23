@@ -46,7 +46,7 @@ class ViewController: NSViewController {
 //        print(insertSuccess)
         
         FormPresenter.presentNewObjectTypeSelectionForm(forMajorObject: selectedObject, completion: { (selectedType) in
-            
+            FormPresenter.presentCreateObjectForm(withType: selectedType)
         })
     }
     

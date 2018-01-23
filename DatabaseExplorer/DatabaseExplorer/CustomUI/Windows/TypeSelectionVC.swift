@@ -46,8 +46,8 @@ class TypeSelectionVC: NSViewController {
     //MARK: IBActions
     @IBAction func okTapped(_ sender: NSButton) {
         let selectedType = types[typesPopUpButton.indexOfSelectedItem]
-        completion?(selectedType)
         NSApplication.shared.stopModal()
+        completion?(selectedType)
     }
     
     @IBAction func cancelTapped(_ sender: NSButton) {

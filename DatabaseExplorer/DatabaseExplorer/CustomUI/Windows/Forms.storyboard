@@ -12,7 +12,7 @@
             <objects>
                 <windowController storyboardIdentifier="TypeSelectionWC" id="DhY-wT-I4t" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="wbf-Xg-QXZ">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES"/>
                         <rect key="contentRect" x="117" y="1113" width="292" height="166"/>
                         <rect key="screenRect" x="-177" y="800" width="1920" height="1057"/>
                         <connections>
@@ -32,11 +32,11 @@
             <objects>
                 <viewController storyboardIdentifier="TypeSelectionVC" id="Qxe-Kq-ZYJ" customClass="TypeSelectionVC" customModule="DatabaseExplorer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="5dN-SF-A83">
-                        <rect key="frame" x="0.0" y="0.0" width="362" height="135"/>
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="135"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8TJ-Xp-bo1">
-                                <rect key="frame" x="48" y="87" width="267" height="26"/>
+                                <rect key="frame" x="48" y="87" width="255" height="26"/>
                                 <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="ZPB-57-KGW">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
@@ -44,7 +44,7 @@
                                 </popUpButtonCell>
                             </popUpButton>
                             <stackView distribution="equalSpacing" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nt9-eI-u2w">
-                                <rect key="frame" x="119" y="24" width="125" height="21"/>
+                                <rect key="frame" x="113" y="24" width="125" height="21"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bu0-bA-rPf">
                                         <rect key="frame" x="-6" y="-7" width="59" height="32"/>
@@ -103,9 +103,9 @@ Gw
         <!--Window Controller-->
         <scene sceneID="fNO-49-zXy">
             <objects>
-                <windowController id="p3N-jr-3hR" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="FormWC" id="p3N-jr-3hR" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="zca-C2-Qv7">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES"/>
                         <rect key="contentRect" x="117" y="1113" width="600" height="500"/>
                         <rect key="screenRect" x="-177" y="800" width="1920" height="1057"/>
                         <connections>
@@ -123,7 +123,7 @@ Gw
         <!--View Controller-->
         <scene sceneID="a8T-zy-wBe">
             <objects>
-                <viewController id="SMe-oG-XRk" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="test" id="SMe-oG-XRk" sceneMemberID="viewController">
                     <view key="view" id="xu7-ug-peB">
                         <rect key="frame" x="0.0" y="0.0" width="599" height="469"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -136,6 +136,20 @@ Gw
                                     <subviews>
                                         <view translatesAutoresizingMaskIntoConstraints="NO" id="IdD-Ae-K83">
                                             <rect key="frame" x="0.0" y="0.0" width="582" height="452"/>
+                                            <subviews>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1LL-7I-RFf">
+                                                    <rect key="frame" x="-2" y="435" width="37" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="RHa-ho-mq7">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1LL-7I-RFf" firstAttribute="leading" secondItem="IdD-Ae-K83" secondAttribute="leading" id="Ren-jz-ilW"/>
+                                                <constraint firstItem="1LL-7I-RFf" firstAttribute="top" secondItem="IdD-Ae-K83" secondAttribute="top" id="ggs-Sn-OQK"/>
+                                            </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
@@ -162,6 +176,9 @@ Gw
                             <constraint firstAttribute="bottom" secondItem="xse-0y-ccb" secondAttribute="bottom" id="uB2-eI-QaY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentView" destination="IdD-Ae-K83" id="XYQ-KR-f8P"/>
+                    </connections>
                 </viewController>
                 <customObject id="d7n-Da-tNv" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
