@@ -20,8 +20,6 @@ class FormFactory {
         }
         
         if let formViewController = formVC {
-            formViewController.view = NSView(frame: NSRect(x: 50.0, y: 50.0, width: 400.0, height: 600.0))
-            formViewController.setupForm()
             let formWindowController = NSWindowController(window: NSWindow(contentViewController: formViewController))
             return formWindowController
         }

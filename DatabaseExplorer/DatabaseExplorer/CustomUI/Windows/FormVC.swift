@@ -11,14 +11,12 @@ import Cocoa
 class FormVC: NSViewController {
     
     var object: Object?
-    
-    internal var contentView: NSView = NSView()
     internal var scrollView: NSScrollView = NSScrollView()
-
+    internal var contentView: NSView = NSView()
+    
     //MARK: Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func loadView() {
+        self.view = NSView(frame: NSRect(x: 50.0, y: 50.0, width: 600.0, height: 500.0))
         setupForm()
     }
     
@@ -29,13 +27,19 @@ class FormVC: NSViewController {
     
     //MARK: Private Methods
     private func setupScrollView() {
-        view.addSubview(scrollView)
-        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        // Initial scrollview
+        scrollView = NSScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.borderType = .noBorder
-        scrollView.backgroundColor = .gray
+        scrollView.backgroundColor = NSColor.gray
         scrollView.hasVerticalScroller = true
         
+        view.addSubview(scrollView)
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[scrollView]|", options: [], metrics: nil, views: ["scrollView": scrollView]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[scrollView]|", options: [], metrics: nil, views: ["scrollView": scrollView]))
+        
+        // Initial clip view
         let clipView = NSClipView()
         clipView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.contentView = clipView
@@ -44,76 +48,38 @@ class FormVC: NSViewController {
         scrollView.addConstraint(NSLayoutConstraint(item: clipView, attribute: .right, relatedBy: .equal, toItem: scrollView, attribute: .right, multiplier: 1.0, constant: 0))
         scrollView.addConstraint(NSLayoutConstraint(item: clipView, attribute: .bottom, relatedBy: .equal, toItem: scrollView, attribute: .bottom, multiplier: 1.0, constant: 0))
         
-        NSLayoutConstraint(item: scrollView,
-                           attribute: .leading,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .leading,
-                           multiplier: 1.0,
-                           constant: 0.0).isActive = true
-        
-        NSLayoutConstraint(item: scrollView,
-                           attribute: .top,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .top,
-                           multiplier: 1.0,
-                           constant: 0.0).isActive = true
-        
-        NSLayoutConstraint(item: scrollView,
-                           attribute: .trailing,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .trailing,
-                           multiplier: 1.0,
-                           constant: 0.0).isActive = true
-        
-        NSLayoutConstraint(item: scrollView,
-                           attribute: .bottom,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .bottom,
-                           multiplier: 1.0,
-                           constant: 0.0).isActive = true
+        // Initial document view
+        let documentView = NSView()
+        documentView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.documentView = documentView
+        clipView.addConstraint(NSLayoutConstraint(item: clipView, attribute: .left, relatedBy: .equal, toItem: documentView, attribute: .left, multiplier: 1.0, constant: 0))
+        clipView.addConstraint(NSLayoutConstraint(item: clipView, attribute: .top, relatedBy: .equal, toItem: documentView, attribute: .top, multiplier: 1.0, constant: 0))
+        clipView.addConstraint(NSLayoutConstraint(item: clipView, attribute: .right, relatedBy: .equal, toItem: documentView, attribute: .right, multiplier: 1.0, constant: 0))
         
         contentView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let documentView = NSView()
         documentView.addSubview(contentView)
-            
-        NSLayoutConstraint(item: contentView,
-                           attribute: .leading,
-                           relatedBy: .equal,
-                           toItem: documentView,
-                           attribute: .leading,
-                           multiplier: 1.0,
-                           constant: 0.0).isActive = true
+        documentView.addConstraint(NSLayoutConstraint(item: contentView, attribute: .top, relatedBy: .equal, toItem: documentView, attribute: .top, multiplier: 1.0, constant: 0.0))
+        documentView.addConstraint(NSLayoutConstraint(item: contentView, attribute: .trailing, relatedBy: .equal, toItem: documentView, attribute: .trailing, multiplier: 1.0, constant: 0.0))
+        documentView.addConstraint(NSLayoutConstraint(item: contentView, attribute: .leading, relatedBy: .equal, toItem: documentView, attribute: .leading, multiplier: 1.0, constant: 0.0))
         
-        NSLayoutConstraint(item: contentView,
-                           attribute: .top,
-                           relatedBy: .equal,
-                           toItem: documentView,
-                           attribute: .top,
-                           multiplier: 1.0,
-                           constant: 0.0).isActive = true
+        let bottomConstraint = NSLayoutConstraint(item: contentView, attribute: .bottom, relatedBy: .equal, toItem: documentView, attribute: .bottom, multiplier: 1.0, constant: 0.0)
+        documentView.addConstraint(bottomConstraint)
         
-        NSLayoutConstraint(item: contentView,
-                           attribute: .trailing,
-                           relatedBy: .equal,
-                           toItem: documentView,
-                           attribute: .trailing,
-                           multiplier: 1.0,
-                           constant: 0.0).isActive = true
-        
-        NSLayoutConstraint(item: contentView,
-                           attribute: .trailing,
-                           relatedBy: .equal,
-                           toItem: documentView,
-                           attribute: .trailing,
-                           multiplier: 1.0,
-                           constant: 0.0).isActive = true
-        
-        scrollView.documentView = documentView
+        let heightContraint = NSLayoutConstraint(item: contentView, attribute: .height, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 500.0)
+        heightContraint.priority = NSLayoutConstraint.Priority(rawValue: 1000)
+        contentView.addConstraint(heightContraint)
+//
+////        // Subview2
+//        let view2 = NSView()
+//        view2.translatesAutoresizingMaskIntoConstraints = false
+//        view2.wantsLayer = true
+//        view2.layer?.backgroundColor = NSColor.green.cgColor
+//        documentView.addSubview(view2)
+//        documentView.addConstraint((NSLayoutConstraint(item: view2, attribute: .leading, relatedBy: .equal, toItem: view1, attribute: .leading, multiplier: 1.0, constant: 0.0)))
+//        documentView.addConstraint((NSLayoutConstraint(item: view2, attribute: .trailing, relatedBy: .equal, toItem: view1, attribute: .trailing, multiplier: 1.0, constant: 0.0)))
+//        documentView.addConstraint((NSLayoutConstraint(item: view2, attribute: .top, relatedBy: .equal, toItem: view1, attribute: .bottom, multiplier: 1.0, constant: 0.0)))
+//        documentView.addConstraint(NSLayoutConstraint(item: view2, attribute: .bottom, relatedBy: .equal, toItem: documentView, attribute: .bottom, multiplier: 1.0, constant: 0.0))
+//        view2.addConstraint(NSLayoutConstraint(item: view2, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 400.0))
     }
     
 }
