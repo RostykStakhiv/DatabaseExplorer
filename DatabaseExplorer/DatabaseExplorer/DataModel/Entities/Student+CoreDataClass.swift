@@ -19,4 +19,10 @@ public class Student: Person {
             return "Student"
         }
     }
+    
+    override class var entityName: String {
+        get {
+            return "Student"
+        }
+    }
 }

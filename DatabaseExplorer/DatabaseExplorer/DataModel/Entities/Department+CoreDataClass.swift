@@ -19,5 +19,11 @@ public class Department: Object {
             return "Department"
         }
     }
+    
+    override class var entityName: String {
+        get {
+            return "Department"
+        }
+    }
 
 }

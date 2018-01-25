@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DatabaseExplorer/CustomUI/Windows/FormVC.swift"
-            timestampString = "538592135.502746"
+            timestampString = "538593707.2657779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DatabaseExplorer/CustomUI/Windows/UniversityForm.swift"
-            timestampString = "538592135.50286"
+            timestampString = "538593707.265871"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "loadView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,12 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DatabaseExplorer/CustomUI/Windows/FormVC.swift"
-            timestampString = "538592135.503386"
+            timestampString = "538593707.266402"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
             endingLineNumber = "30"
-            landmarkName = "setupScrollView()"
+            landmarkName = "validateInput()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DatabaseExplorer/CustomUI/Windows/UniversityForm.swift"
-            timestampString = "538592135.503459"
+            timestampString = "538593707.266474"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "setupForm()"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DatabaseExplorer/CustomUI/Windows/FormVC.swift"
-            timestampString = "538592135.503809"
+            timestampString = "538593707.266899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"

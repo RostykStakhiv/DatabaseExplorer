@@ -20,6 +20,12 @@ public class University: Building {
         }
     }
     
+    override class var entityName: String {
+        get {
+            return "University"
+        }
+    }
+    
     override func parseWithModel(_ model: Object) -> Bool {
         guard super.parseWithModel(model), let universityModel = model as? University else {
             return false

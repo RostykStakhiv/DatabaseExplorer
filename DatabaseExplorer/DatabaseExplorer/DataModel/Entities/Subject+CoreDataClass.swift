@@ -19,5 +19,11 @@ public class Subject: Object {
             return "Subject"
         }
     }
+    
+    override class var entityName: String {
+        get {
+            return "Subject"
+        }
+    }
 
 }

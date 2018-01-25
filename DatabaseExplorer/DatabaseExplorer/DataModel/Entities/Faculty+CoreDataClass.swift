@@ -19,4 +19,10 @@ public class Faculty: EducationalDepartment {
             return "Faculty"
         }
     }
+    
+    override class var entityName: String {
+        get {
+            return "Faculty"
+        }
+    }
 }

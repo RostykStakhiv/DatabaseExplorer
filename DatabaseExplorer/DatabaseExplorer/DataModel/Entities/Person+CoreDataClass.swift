@@ -19,6 +19,12 @@ public class Person: Object {
             return "Person"
         }
     }
+    
+    override class var entityName: String {
+        get {
+            return "Person"
+        }
+    }
 
     override func parseWithModel(_ model: Object) -> Bool {
         guard super.parseWithModel(model), let personModel = model as? Person else {

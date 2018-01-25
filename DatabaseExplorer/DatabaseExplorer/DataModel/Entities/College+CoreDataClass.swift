@@ -19,4 +19,10 @@ public class College: EducationalDepartment {
             return "College"
         }
     }
+    
+    override class var entityName: String {
+        get {
+            return "College"
+        }
+    }
 }

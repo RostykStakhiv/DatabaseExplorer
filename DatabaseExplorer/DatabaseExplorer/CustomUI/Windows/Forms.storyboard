@@ -43,7 +43,7 @@
                                     <menu key="menu" id="UYt-Kj-7j6"/>
                                 </popUpButtonCell>
                             </popUpButton>
-                            <stackView distribution="equalSpacing" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nt9-eI-u2w">
+                            <stackView distribution="fillProportionally" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nt9-eI-u2w">
                                 <rect key="frame" x="113" y="24" width="125" height="21"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bu0-bA-rPf">
@@ -136,20 +136,6 @@ Gw
                                     <subviews>
                                         <view translatesAutoresizingMaskIntoConstraints="NO" id="IdD-Ae-K83">
                                             <rect key="frame" x="0.0" y="0.0" width="582" height="452"/>
-                                            <subviews>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1LL-7I-RFf">
-                                                    <rect key="frame" x="-2" y="435" width="37" height="17"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="RHa-ho-mq7">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="1LL-7I-RFf" firstAttribute="leading" secondItem="IdD-Ae-K83" secondAttribute="leading" id="Ren-jz-ilW"/>
-                                                <constraint firstItem="1LL-7I-RFf" firstAttribute="top" secondItem="IdD-Ae-K83" secondAttribute="top" id="ggs-Sn-OQK"/>
-                                            </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>

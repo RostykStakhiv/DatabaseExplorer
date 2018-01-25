@@ -19,6 +19,12 @@ public class Object: NSManagedObject {
             return ""
         }
     }
+    
+    class var entityName: String {
+        get {
+            return "Object"
+        }
+    }
 
     func fetchRequest(id: Int64) -> NSFetchRequest<NSFetchRequestResult> {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Object.fetchRequest()

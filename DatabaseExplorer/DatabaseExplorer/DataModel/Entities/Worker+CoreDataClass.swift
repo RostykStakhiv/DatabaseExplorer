@@ -19,4 +19,10 @@ public class Worker: Person {
             return "Worker"
         }
     }
+    
+    override class var entityName: String {
+        get {
+            return "Worker"
+        }
+    }
 }

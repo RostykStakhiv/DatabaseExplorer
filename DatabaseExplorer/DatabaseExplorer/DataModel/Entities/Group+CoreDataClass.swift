@@ -20,4 +20,10 @@ public class Group: Object {
         }
     }
     
+    override class var entityName: String {
+        get {
+            return "Group"
+        }
+    }
+    
 }

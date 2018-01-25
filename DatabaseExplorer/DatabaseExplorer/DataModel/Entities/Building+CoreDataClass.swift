@@ -20,6 +20,12 @@ public class Building: Object {
         }
     }
     
+    override class var entityName: String {
+        get {
+            return "Building"
+        }
+    }
+    
     override func parseWithModel(_ model: Object) -> Bool {
         guard super.parseWithModel(model), let buildingModel = model as? Building else {
             return false

@@ -76,6 +76,7 @@ class UniversityForm: FormVC {
     
     private var okButton: NSButton = {
         let ok = NSButton(title: "OK", target: self, action: #selector(okTapped))
+        ok.keyEquivalent = "\r"
         return ok
     }()
     
@@ -86,7 +87,7 @@ class UniversityForm: FormVC {
 
     //MARK: Lifecycle
     override func loadView() {
-        self.view = NSView(frame: NSRect(x: 50.0, y: 50.0, width: 400.0, height: 200.0))
+        self.view = NSView(frame: NSRect(x: 50.0, y: 50.0, width: 400.0, height: 300.0))
         setupForm()
     }
     
@@ -146,20 +147,25 @@ class UniversityForm: FormVC {
         documentView.addConstraint(NSLayoutConstraint(item: addressLngTF, attribute: .height, relatedBy: .equal, toItem: addressLatTF, attribute: .height, multiplier: 1.0, constant: 0.0))
         
         let buttonsStackView = NSStackView(views: [okButton, cancelButton])
-        buttonsStackView.alignment = .centerX
-        buttonsStackView.distribution = .fill
+        buttonsStackView.orientation = .horizontal
+        buttonsStackView.alignment = .centerY
+        buttonsStackView.distribution = .fillProportionally
         contentView.addSubview(buttonsStackView)
         
         documentView.addConstraint(NSLayoutConstraint(item: buttonsStackView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 220.0))
-        documentView.addConstraint(NSLayoutConstraint(item: buttonsStackView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 30.0))
+        documentView.addConstraint(NSLayoutConstraint(item: buttonsStackView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 100.0))
         documentView.addConstraint(NSLayoutConstraint(item: buttonsStackView, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1.0, constant: 0.0))
         documentView.addConstraint(NSLayoutConstraint(item: buttonsStackView, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1.0, constant: 24.0))
         documentView.addConstraint(NSLayoutConstraint(item: buttonsStackView, attribute: .top, relatedBy: .greaterThanOrEqual, toItem: addressLngTF, attribute: .bottom, multiplier: 1.0, constant: 24.0))
     }
     
+    override internal func validateInput() -> Bool {
+        return false
+    }
+    
     //MARK: Custom Actions
     @objc private func okTapped() {
-        
+        let university = DataModel.shared.emptyObject(name: University.entityName, context: nil) as! University
     }
     
     @objc private func cancelTapped() {

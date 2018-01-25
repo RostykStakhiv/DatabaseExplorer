@@ -25,6 +25,12 @@ class FormVC: NSViewController {
         setupScrollView()
     }
     
+    //MARK: Internal Methods
+    internal func validateInput() -> Bool {
+        assertionFailure("Override in subclass")
+        return false
+    }
+    
     //MARK: Private Methods
     private func setupScrollView() {
         view.translatesAutoresizingMaskIntoConstraints = false

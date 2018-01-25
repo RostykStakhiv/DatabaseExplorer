@@ -19,5 +19,11 @@ public class EducationalDepartment: Building {
             return "Educational Department"
         }
     }
+    
+    override class var entityName: String {
+        get {
+            return "EducationalDepartment"
+        }
+    }
 
 }
