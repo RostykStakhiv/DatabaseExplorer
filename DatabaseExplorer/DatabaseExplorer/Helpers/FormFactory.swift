@@ -20,7 +20,9 @@ class FormFactory {
         }
         
         if let formViewController = formVC {
-            let formWindowController = NSWindowController(window: NSWindow(contentViewController: formViewController))
+            let window = NSWindow(contentViewController: formViewController)
+            window.title = type.humanReadableEntityName
+            let formWindowController = NSWindowController(window: window)
             return formWindowController
         }
         

@@ -65,21 +65,9 @@ class FormVC: NSViewController {
         let bottomConstraint = NSLayoutConstraint(item: contentView, attribute: .bottom, relatedBy: .equal, toItem: documentView, attribute: .bottom, multiplier: 1.0, constant: 0.0)
         documentView.addConstraint(bottomConstraint)
         
-        let heightContraint = NSLayoutConstraint(item: contentView, attribute: .height, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 500.0)
+        let heightContraint = NSLayoutConstraint(item: contentView, attribute: .height, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 200.0)
         heightContraint.priority = NSLayoutConstraint.Priority(rawValue: 1000)
         contentView.addConstraint(heightContraint)
-//
-////        // Subview2
-//        let view2 = NSView()
-//        view2.translatesAutoresizingMaskIntoConstraints = false
-//        view2.wantsLayer = true
-//        view2.layer?.backgroundColor = NSColor.green.cgColor
-//        documentView.addSubview(view2)
-//        documentView.addConstraint((NSLayoutConstraint(item: view2, attribute: .leading, relatedBy: .equal, toItem: view1, attribute: .leading, multiplier: 1.0, constant: 0.0)))
-//        documentView.addConstraint((NSLayoutConstraint(item: view2, attribute: .trailing, relatedBy: .equal, toItem: view1, attribute: .trailing, multiplier: 1.0, constant: 0.0)))
-//        documentView.addConstraint((NSLayoutConstraint(item: view2, attribute: .top, relatedBy: .equal, toItem: view1, attribute: .bottom, multiplier: 1.0, constant: 0.0)))
-//        documentView.addConstraint(NSLayoutConstraint(item: view2, attribute: .bottom, relatedBy: .equal, toItem: documentView, attribute: .bottom, multiplier: 1.0, constant: 0.0))
-//        view2.addConstraint(NSLayoutConstraint(item: view2, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 400.0))
     }
     
 }
