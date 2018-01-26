@@ -159,13 +159,24 @@ class UniversityForm: FormVC {
         documentView.addConstraint(NSLayoutConstraint(item: buttonsStackView, attribute: .top, relatedBy: .greaterThanOrEqual, toItem: addressLngTF, attribute: .bottom, multiplier: 1.0, constant: 24.0))
     }
     
-    override internal func validateInput() -> Bool {
-        return false
+    override func validateInput() -> (Bool, Object?) {
+        guard universityNameTF.stringValue.count > 0, addressTF.stringValue.count > 0, addressLatTF.stringValue.count > 0, addressLngTF.stringValue.count > 0 else {
+            return (false, nil)
+        }
+        
+        let university = DataModel.shared.emptyObject(name: University.entityName, context: nil) as! University
+        university.name = universityNameTF.stringValue
+        
+        let universityAddress = DataModel.shared.emptyObject(name: Address.entityName, context: nil) as! Address
+        universityAddress.formattedAddress = addressTF.stringValue
+        universityAddress.lat = addressLatTF.doubleValue
+        universityAddress.lng = addressLngTF.doubleValue
+        universityAddress.building = university
     }
     
     //MARK: Custom Actions
     @objc private func okTapped() {
-        let university = DataModel.shared.emptyObject(name: University.entityName, context: nil) as! University
+        
     }
     
     @objc private func cancelTapped() {

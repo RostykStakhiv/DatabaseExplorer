@@ -26,9 +26,9 @@ class FormVC: NSViewController {
     }
     
     //MARK: Internal Methods
-    internal func validateInput() -> Bool {
+    internal func validateInput() -> (Bool, Object?) {
         assertionFailure("Override in subclass")
-        return false
+        return (false, nil)
     }
     
     //MARK: Private Methods
