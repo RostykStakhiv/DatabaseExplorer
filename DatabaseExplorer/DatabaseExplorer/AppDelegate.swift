@@ -4,7 +4,6 @@
 //
 //  Created by admin on 10/7/17.
 //  Copyright © 2017 rstakhiv. All rights reserved.
-//
 
 import Cocoa
 

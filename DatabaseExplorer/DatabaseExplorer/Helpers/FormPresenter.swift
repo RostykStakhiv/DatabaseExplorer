@@ -31,8 +31,6 @@ class FormPresenter {
         }
         
         formContentVC.action = action
-        form.object = object
-        
         FormPresenter.presentWindowController(form)
     }
     

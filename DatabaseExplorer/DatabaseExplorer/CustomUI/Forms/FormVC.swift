@@ -17,18 +17,29 @@ class FormVC: NSViewController {
         
         static public func == (lhs: ObjectDetailsFormAction, rhs: ObjectDetailsFormAction) -> Bool {
             switch (lhs, rhs) {
-            case let (.edit(a),   edit(b)):
+            case let (.edit(a), edit(b)):
                 return a == b
-             case let (.preview(a),   preview(b)):
+             case let (.preview(a), preview(b)):
                 return a == b
-            default:
-                return false
+            case  (.create, .create):
+                return true
+            default: return false
             }
         }
     }
     
     var majorObject: Object?
-    var action: ObjectDetailsFormAction = .create
+    var action: ObjectDetailsFormAction = .create {
+        didSet {
+            switch action {
+            case .edit(let object), .preview(let object):
+                self.object = object
+            case .create: break
+            }
+        }
+    }
+    
+    internal var object: Object?
     
     internal var scrollView: NSScrollView = NSScrollView()
     internal var contentView: NSView = NSView()

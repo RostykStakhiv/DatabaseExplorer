@@ -99,6 +99,7 @@ class UniversityFormVC: FormVC {
         super.viewWillAppear()
         
         setupForm()
+        self.view.window?.title = object?.name ?? "New University"
     }
     
     //MARK: Overrides
@@ -135,13 +136,6 @@ class UniversityFormVC: FormVC {
             }
         default: break
         }
-        
-//        if action ==  {
-//            universityNameTF.isEditable = true
-//            addressTF.isEditable = true
-//            addressLngTF.isEditable = true
-//            addressLatTF.isEditable = true
-//        }
         
         contentView.addSubview(universityNameTF)
         
@@ -206,24 +200,41 @@ class UniversityFormVC: FormVC {
     //MARK: Custom Actions
     @objc private func okTapped() {
         guard validateInput() else {
+            self.view.window?.close()
             return
         }
         
-        let university = DataModel.shared.emptyObject(name: University.entityName) as! University
-        university.name = universityNameTF.stringValue
+        var university: University?
         
-        let universityAddress = DataModel.shared.emptyObject(name: Address.entityName) as! Address
-        universityAddress.formattedAddress = addressTF.stringValue
-        universityAddress.lat = addressLatTF.doubleValue
-        universityAddress.lng = addressLngTF.doubleValue
-        universityAddress.building = university
-        
-        university.address = universityAddress
-        if let major = majorObject {
-            university.majorID = major.uniqueID
+        switch action {
+        case .create:
+            university = DataModel.shared.emptyObject(name: University.entityName) as? University
+        case .edit(let object):
+            university = object as? University
+        case .preview(_): break
         }
         
-        DataModel.shared.insertObject(withModel: university)
+        if let fetchedUnivesity = university {
+            fetchedUnivesity.name = universityNameTF.stringValue
+            
+            let universityAddress = DataModel.shared.emptyObject(name: Address.entityName) as! Address
+            universityAddress.formattedAddress = addressTF.stringValue
+            universityAddress.lat = addressLatTF.doubleValue
+            universityAddress.lng = addressLngTF.doubleValue
+            universityAddress.building = university
+            
+            fetchedUnivesity.address = universityAddress
+            if let major = majorObject {
+                fetchedUnivesity.majorID = major.uniqueID
+            }
+            
+            switch action {
+            case .create:
+                DataModel.shared.insertObject(withModel: fetchedUnivesity)
+            case .edit(_), .preview(_): break
+            }
+        }
+        
         self.view.window?.close()
     }
     

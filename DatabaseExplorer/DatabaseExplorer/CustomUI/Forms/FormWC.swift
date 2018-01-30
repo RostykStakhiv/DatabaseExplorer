@@ -9,8 +9,6 @@
 import Cocoa
 
 class FormWC: NSWindowController {
-    
-    var object: Object?
 
     override func windowDidLoad() {
         super.windowDidLoad()
