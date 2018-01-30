@@ -11,31 +11,24 @@ import Foundation
 import CoreData
 
 @objc(Address)
-public class Address: Object {
-
-    //MARK: Overrides
-    override class var humanReadableEntityName: String {
+public class Address: NSManagedObject {
+    
+    class var entityName: String {
         get {
             return "Address"
         }
     }
     
-    override class var entityName: String {
-        get {
-            return "Address"
-        }
-    }
-    
-    override func parseWithModel(_ model: Object) -> Bool {
-        guard super.parseWithModel(model), let addressModel = model as? Address else {
-            return false
-        }
-        
-        self.formattedAddress = addressModel.formattedAddress
-        self.lat = addressModel.lat
-        self.lng = addressModel.lng
-        self.building = addressModel.building
-        
-        return true
-    }
+//    override func parseWithModel(_ model: Object) -> Bool {
+//        guard super.parseWithModel(model), let addressModel = model as? Address else {
+//            return false
+//        }
+//        
+//        self.formattedAddress = addressModel.formattedAddress
+//        self.lat = addressModel.lat
+//        self.lng = addressModel.lng
+//        self.building = addressModel.building
+//        
+//        return true
+//    }
 }

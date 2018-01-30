@@ -32,6 +32,7 @@ public class Building: Object {
         }
         
         self.address = buildingModel.address
+        
         return true
     }
 }

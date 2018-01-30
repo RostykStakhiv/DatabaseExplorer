@@ -127,7 +127,7 @@ class DataModel {
                 return nil
             }
             
-            return emptyObject(name: entityName, context: managedObjectContext)
+            return emptyObject(name: entityName)
         }
         
         return fetchedEntity
@@ -161,26 +161,16 @@ class DataModel {
     }
     
     //MARK: Insertion
-    func emptyObject(name: String, context: NSManagedObjectContext?) -> NSManagedObject {
+    func emptyObject(name: String) -> NSManagedObject {
         let entity = NSEntityDescription.entity(forEntityName: name, in: managedObjectContext)!
-        return NSManagedObject(entity:entity, insertInto: context)
+        return NSManagedObject(entity:entity, insertInto: managedObjectContext)
     }
     
-    func insertObject<T: Object>(withModel objectModel: T) -> Bool {
-        guard let entityName = objectModel.entity.name, let insertedObject = self.emptyObject(name: entityName, context: managedObjectContext) as? T else {
-            return false
-        }
-        
-        guard insertedObject.parseWithModel(objectModel) else {
-            managedObjectContext.delete(insertedObject)
-            return false
-        }
-        
-        insertedObject.uniqueID = self.lastCreatedObjectID
+    func insertObject<T: Object>(withModel objectModel: T) {
+        objectModel.uniqueID = self.lastCreatedObjectID + 1
         lastCreatedObjectID = lastCreatedObjectID + 1
-        insertedObject.createDate = Date() as NSDate
-        
-        return true
+        objectModel.createDate = Date() as NSDate
+        saveContext()
     }
     
     //MARK: Fetching

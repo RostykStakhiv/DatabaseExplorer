@@ -34,33 +34,34 @@ class ViewController: NSViewController {
     }
     
     //MARK: Menu Handling
-    @IBAction func handleAddMenuButton(_ item: NSMenuItem) {
-//        let person = DataModel.shared.emptyObject(name: "Person", context: nil) as! Person
-//        person.name = "Person"
-//        person.firstName = "Ivan"
-//        person.lastName = "Ivanov"
-//        person.sex = true
-//        person.majorID = 6
-//
-//        let insertSuccess = DataModel.shared.insertObject(withModel: person)
-//        print(insertSuccess)
-        
+    @objc private func handleAddMenuButton() {
         FormPresenter.presentNewObjectTypeSelectionForm(forMajorObject: selectedObject, completion: { (selectedType) in
             FormPresenter.presentCreateObjectForm(withType: selectedType)
         })
     }
     
-    @IBAction func handleShowInfoMenuButton(_ item: NSMenuItem) {
+    @objc private func handleShowInfoMenuButton() {
+        guard let selectedObject = selectedObject else {
+            return
+        }
         
+        FormPresenter.presentObjectInfoForm(forObject: selectedObject, withAction: .preview(selectedObject))
     }
     
-    @IBAction func handleEditMenuButton(_ item: NSMenuItem) {
+    @objc private func handleEditMenuButton() {
+        guard let selectedObject = selectedObject else {
+            return
+        }
         
+        FormPresenter.presentObjectInfoForm(forObject: selectedObject, withAction: .edit(selectedObject))
     }
 }
 
 extension ViewController: NSMenuDelegate {
     func menuNeedsUpdate(_ menu: NSMenu) {
+        menu.removeAllItems()
+        
+        menu.addItem(NSMenuItem(title: "Add", action: #selector(handleAddMenuButton), keyEquivalent: ""))
         let row = self.outlineView.clickedRow
         
         guard row != -1 else {
@@ -68,6 +69,8 @@ extension ViewController: NSMenuDelegate {
             return
         }
         
+        menu.addItem(NSMenuItem(title: "Edit", action: #selector(handleEditMenuButton), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Preview", action: #selector(handleShowInfoMenuButton), keyEquivalent: ""))
         selectedObject = outlineView.item(atRow: row) as? Object
     }
 }
@@ -121,16 +124,6 @@ extension ViewController: NSOutlineViewDelegate {
         
         return view
     }
-    
-//    func outlineViewSelectionDidChange(_ notification: Notification) {
-//        //1
-//        guard let outlineView = notification.object as? NSOutlineView else {
-//            return
-//        }
-//
-//        //2
-//        let selectedIndex = outlineView.selectedRow
-//    }
 }
 
 

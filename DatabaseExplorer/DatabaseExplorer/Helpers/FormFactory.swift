@@ -10,22 +10,24 @@ import Cocoa
 
 class FormFactory {
 
-    class func createForm(forObjectType type: Object.Type) -> NSWindowController {
-        var formVC: FormVC?
+    class func createForm(forObjectType objectType: Object.Type? = nil, object: Object? = nil) -> FormWC? {
+        guard objectType != nil || object != nil else {
+            return nil
+        }
         
-        if type == University.self {
-            formVC = UniversityForm(nibName: nil, bundle: nil)
-        } else if type == Student.self {
+        let typeOfObject = objectType ?? type(of: object!)
+        var formWC: FormWC?
+        
+        if typeOfObject.objectSpecifier() == University.self.objectSpecifier() {
+            formWC = UniversityFormWC()
+        } else if typeOfObject == Student.self {
             
+        } else if typeOfObject == Object.Type.self {
+            print("Object")
+        } else {
+            print(University.self)
         }
         
-        if let formViewController = formVC {
-            let window = NSWindow(contentViewController: formViewController)
-            window.title = type.humanReadableEntityName
-            let formWindowController = NSWindowController(window: window)
-            return formWindowController
-        }
-        
-        return NSWindowController()
+        return formWC
     }
 }

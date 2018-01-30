@@ -18,8 +18,8 @@ class TypeSelectionVC: NSViewController {
     var completion: FormPresenter.TypeSelectionFormCompletion?
 
     //MARK: Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear() {
+        super.viewWillAppear()
         
         setupTypes()
         setupTypesPopUpButton()
@@ -36,7 +36,11 @@ class TypeSelectionVC: NSViewController {
     private func setupTypes() {
         if let major = majorObject {
             if major is University {
-                types = [Faculty.self, Worker.self]
+                types = [Faculty.self, Teacher.self]
+            } else if major is Faculty {
+                types = [Department.self]
+            } else if major is Department {
+                types = [Group.self]
             }
         } else {
             types = [University.self, Worker.self, EducationalDepartment.self]
@@ -46,12 +50,12 @@ class TypeSelectionVC: NSViewController {
     //MARK: IBActions
     @IBAction func okTapped(_ sender: NSButton) {
         let selectedType = types[typesPopUpButton.indexOfSelectedItem]
-        NSApplication.shared.stopModal()
         completion?(selectedType)
+        self.view.window?.close()
     }
     
     @IBAction func cancelTapped(_ sender: NSButton) {
-        NSApplication.shared.stopModal()
+        self.view.window?.close()
     }
     
 }

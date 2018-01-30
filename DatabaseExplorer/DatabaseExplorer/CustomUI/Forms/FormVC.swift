@@ -10,14 +10,32 @@ import Cocoa
 
 class FormVC: NSViewController {
     
-    var object: Object?
+    enum ObjectDetailsFormAction {
+        case create
+        case edit(Object)
+        case preview(Object)
+        
+        static public func == (lhs: ObjectDetailsFormAction, rhs: ObjectDetailsFormAction) -> Bool {
+            switch (lhs, rhs) {
+            case let (.edit(a),   edit(b)):
+                return a == b
+             case let (.preview(a),   preview(b)):
+                return a == b
+            default:
+                return false
+            }
+        }
+    }
+    
+    var majorObject: Object?
+    var action: ObjectDetailsFormAction = .create
+    
     internal var scrollView: NSScrollView = NSScrollView()
     internal var contentView: NSView = NSView()
     
     //MARK: Lifecycle
     override func loadView() {
         self.view = NSView(frame: NSRect(x: 50.0, y: 50.0, width: 600.0, height: 500.0))
-        setupForm()
     }
     
     //MARK: Public Methods
@@ -26,14 +44,14 @@ class FormVC: NSViewController {
     }
     
     //MARK: Internal Methods
-    internal func validateInput() -> (Bool, Object?) {
+    internal func validateInput() -> Bool {
         assertionFailure("Override in subclass")
-        return (false, nil)
+        return false
     }
     
     //MARK: Private Methods
     private func setupScrollView() {
-        view.translatesAutoresizingMaskIntoConstraints = false
+
         // Initial scrollview
         scrollView = NSScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false

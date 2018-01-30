@@ -9,24 +9,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DatabaseExplorer/Helpers/FormPresenter.swift"
-            timestampString = "538483886.476257"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "presentObjectInfoForm(forObject:withAction:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "DatabaseExplorer/CustomUI/Windows/FormVC.swift"
-            timestampString = "538593707.2657779"
+            timestampString = "538658874.070178"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
@@ -41,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DatabaseExplorer/CustomUI/Windows/UniversityForm.swift"
-            timestampString = "538593707.265871"
+            filePath = "DatabaseExplorer/AppDelegate.swift"
+            timestampString = "538656536.134272"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "loadView()"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "applicationWillTerminate(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DatabaseExplorer/CustomUI/Windows/UniversityForm.swift"
-            timestampString = "538593707.266474"
+            filePath = "DatabaseExplorer/AppDelegate.swift"
+            timestampString = "538656536.1352791"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "setupForm()"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "applicationShouldTerminate(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

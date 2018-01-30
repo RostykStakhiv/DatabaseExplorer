@@ -278,21 +278,12 @@
                     <items>
                         <menuItem title="Add" id="Wmq-Es-gAE">
                             <modifierMask key="keyEquivalentModifierMask"/>
-                            <connections>
-                                <action selector="handleAddMenuButton:" target="XfG-lQ-9wD" id="REw-YS-ox8"/>
-                            </connections>
                         </menuItem>
                         <menuItem title="Show Info" id="rkb-cA-T8J">
                             <modifierMask key="keyEquivalentModifierMask"/>
-                            <connections>
-                                <action selector="handleShowInfoMenuButton:" target="XfG-lQ-9wD" id="Ei4-vc-laF"/>
-                            </connections>
                         </menuItem>
                         <menuItem title="Edit" id="VYj-Z1-IL1">
                             <modifierMask key="keyEquivalentModifierMask"/>
-                            <connections>
-                                <action selector="handleEditMenuButton:" target="XfG-lQ-9wD" id="WGb-2t-Ttm"/>
-                            </connections>
                         </menuItem>
                     </items>
                     <connections>

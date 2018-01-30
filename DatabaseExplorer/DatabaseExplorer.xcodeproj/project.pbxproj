@@ -11,6 +11,13 @@
 		847533221FEF8C1600C60091 /* DatabaseExplorer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 847533201FEF8C1600C60091 /* DatabaseExplorer.xcdatamodeld */; };
 		84EEF54C1F8931EC00377293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EEF54B1F8931EC00377293 /* AppDelegate.swift */; };
 		84EEF5531F8931EC00377293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84EEF5521F8931EC00377293 /* Assets.xcassets */; };
+		8713DCFF201B492F006B6C1B /* TypeSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8713DCF9201B492F006B6C1B /* TypeSelectionVC.swift */; };
+		8713DD00201B492F006B6C1B /* TypeSelectionWC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8713DCFA201B492F006B6C1B /* TypeSelectionWC.swift */; };
+		8713DD01201B492F006B6C1B /* FormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8713DCFB201B492F006B6C1B /* FormVC.swift */; };
+		8713DD02201B492F006B6C1B /* UniversityFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8713DCFD201B492F006B6C1B /* UniversityFormVC.swift */; };
+		8713DD03201B492F006B6C1B /* Forms.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8713DCFE201B492F006B6C1B /* Forms.storyboard */; };
+		8713DD05201B4968006B6C1B /* FormWC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8713DD04201B4968006B6C1B /* FormWC.swift */; };
+		8713DD07201B4A8C006B6C1B /* UniversityFormWC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8713DD06201B4A8C006B6C1B /* UniversityFormWC.swift */; };
 		871C6E93200C9E23009619FF /* Teacher+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C6E77200C9E23009619FF /* Teacher+CoreDataClass.swift */; };
 		871C6E94200C9E23009619FF /* Group+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C6E78200C9E23009619FF /* Group+CoreDataProperties.swift */; };
 		871C6E95200C9E23009619FF /* Object+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C6E79200C9E23009619FF /* Object+CoreDataProperties.swift */; };
@@ -42,12 +49,8 @@
 		871C6EB3200C9F6D009619FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C6EB1200C9F6D009619FF /* ViewController.swift */; };
 		871C6EB4200C9F6D009619FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 871C6EB2200C9F6D009619FF /* Main.storyboard */; };
 		871C6EB9200CC689009619FF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C6EB8200CC689009619FF /* Constants.swift */; };
-		8765AE292017431A000AE0A1 /* FormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8765AE272017431A000AE0A1 /* FormVC.swift */; };
-		8765AE2C20178AAB000AE0A1 /* UniversityForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8765AE2B20178AAB000AE0A1 /* UniversityForm.swift */; };
 		87895258201208D300056C11 /* FormPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87895257201208D300056C11 /* FormPresenter.swift */; };
 		8789525A20120CDC00056C11 /* FormFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8789525920120CDC00056C11 /* FormFactory.swift */; };
-		8789526120120FCB00056C11 /* Forms.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8789525F20120FCB00056C11 /* Forms.storyboard */; };
-		87895263201214E600056C11 /* TypeSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87895262201214E600056C11 /* TypeSelectionVC.swift */; };
 		87895265201218C700056C11 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87895264201218C700056C11 /* Protocols.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +61,13 @@
 		84EEF54B1F8931EC00377293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84EEF5521F8931EC00377293 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84EEF55D1F8931F900377293 /* DatabaseExplorer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DatabaseExplorer.entitlements; sourceTree = "<group>"; };
+		8713DCF9201B492F006B6C1B /* TypeSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeSelectionVC.swift; sourceTree = "<group>"; };
+		8713DCFA201B492F006B6C1B /* TypeSelectionWC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeSelectionWC.swift; sourceTree = "<group>"; };
+		8713DCFB201B492F006B6C1B /* FormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormVC.swift; sourceTree = "<group>"; };
+		8713DCFD201B492F006B6C1B /* UniversityFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversityFormVC.swift; sourceTree = "<group>"; };
+		8713DCFE201B492F006B6C1B /* Forms.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Forms.storyboard; sourceTree = "<group>"; };
+		8713DD04201B4968006B6C1B /* FormWC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormWC.swift; sourceTree = "<group>"; };
+		8713DD06201B4A8C006B6C1B /* UniversityFormWC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityFormWC.swift; sourceTree = "<group>"; };
 		871C6E77200C9E23009619FF /* Teacher+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Teacher+CoreDataClass.swift"; sourceTree = "<group>"; };
 		871C6E78200C9E23009619FF /* Group+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		871C6E79200C9E23009619FF /* Object+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Object+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -90,12 +100,8 @@
 		871C6EB2200C9F6D009619FF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		871C6EB6200CC67D009619FF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		871C6EB8200CC689009619FF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		8765AE272017431A000AE0A1 /* FormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormVC.swift; sourceTree = "<group>"; };
-		8765AE2B20178AAB000AE0A1 /* UniversityForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityForm.swift; sourceTree = "<group>"; };
 		87895257201208D300056C11 /* FormPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormPresenter.swift; sourceTree = "<group>"; };
 		8789525920120CDC00056C11 /* FormFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFactory.swift; sourceTree = "<group>"; };
-		8789525F20120FCB00056C11 /* Forms.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Forms.storyboard; sourceTree = "<group>"; };
-		87895262201214E600056C11 /* TypeSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSelectionVC.swift; sourceTree = "<group>"; };
 		87895264201218C700056C11 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +156,44 @@
 				871C6EAF200C9F6D009619FF /* Stories */,
 			);
 			path = DatabaseExplorer;
+			sourceTree = "<group>";
+		};
+		8713DCF6201B492F006B6C1B /* Forms */ = {
+			isa = PBXGroup;
+			children = (
+				8713DD04201B4968006B6C1B /* FormWC.swift */,
+				8713DCFB201B492F006B6C1B /* FormVC.swift */,
+				8713DCF7201B492F006B6C1B /* Faculty */,
+				8713DCF8201B492F006B6C1B /* TypeSelection */,
+				8713DCFC201B492F006B6C1B /* University */,
+				8713DCFE201B492F006B6C1B /* Forms.storyboard */,
+			);
+			path = Forms;
+			sourceTree = "<group>";
+		};
+		8713DCF7201B492F006B6C1B /* Faculty */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Faculty;
+			sourceTree = "<group>";
+		};
+		8713DCF8201B492F006B6C1B /* TypeSelection */ = {
+			isa = PBXGroup;
+			children = (
+				8713DCF9201B492F006B6C1B /* TypeSelectionVC.swift */,
+				8713DCFA201B492F006B6C1B /* TypeSelectionWC.swift */,
+			);
+			path = TypeSelection;
+			sourceTree = "<group>";
+		};
+		8713DCFC201B492F006B6C1B /* University */ = {
+			isa = PBXGroup;
+			children = (
+				8713DD06201B4A8C006B6C1B /* UniversityFormWC.swift */,
+				8713DCFD201B492F006B6C1B /* UniversityFormVC.swift */,
+			);
+			path = University;
 			sourceTree = "<group>";
 		};
 		871C6E76200C9E23009619FF /* Entities */ = {
@@ -225,20 +269,9 @@
 		8789525D20120FCB00056C11 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
-				8789525E20120FCB00056C11 /* Windows */,
+				8713DCF6201B492F006B6C1B /* Forms */,
 			);
 			path = CustomUI;
-			sourceTree = "<group>";
-		};
-		8789525E20120FCB00056C11 /* Windows */ = {
-			isa = PBXGroup;
-			children = (
-				8765AE272017431A000AE0A1 /* FormVC.swift */,
-				8765AE2B20178AAB000AE0A1 /* UniversityForm.swift */,
-				87895262201214E600056C11 /* TypeSelectionVC.swift */,
-				8789525F20120FCB00056C11 /* Forms.storyboard */,
-			);
-			path = Windows;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,7 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84EEF5531F8931EC00377293 /* Assets.xcassets in Resources */,
-				8789526120120FCB00056C11 /* Forms.storyboard in Resources */,
+				8713DD03201B492F006B6C1B /* Forms.storyboard in Resources */,
 				871C6EB4200C9F6D009619FF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,9 +361,9 @@
 				871C6E98200C9E23009619FF /* Person+CoreDataClass.swift in Sources */,
 				871C6EA4200C9E23009619FF /* Building+CoreDataProperties.swift in Sources */,
 				87895258201208D300056C11 /* FormPresenter.swift in Sources */,
-				8765AE2C20178AAB000AE0A1 /* UniversityForm.swift in Sources */,
 				871C6EA0200C9E23009619FF /* Address+CoreDataProperties.swift in Sources */,
 				871C6EAC200C9E23009619FF /* Building+CoreDataClass.swift in Sources */,
+				8713DD05201B4968006B6C1B /* FormWC.swift in Sources */,
 				8475331E1FEF8BEF00C60091 /* DataModel.swift in Sources */,
 				871C6EA2200C9E23009619FF /* College+CoreDataProperties.swift in Sources */,
 				871C6E9A200C9E23009619FF /* Student+CoreDataClass.swift in Sources */,
@@ -341,20 +374,23 @@
 				871C6EA5200C9E23009619FF /* Teacher+CoreDataProperties.swift in Sources */,
 				871C6E95200C9E23009619FF /* Object+CoreDataProperties.swift in Sources */,
 				871C6EAE200C9E23009619FF /* Department+CoreDataProperties.swift in Sources */,
+				8713DD02201B492F006B6C1B /* UniversityFormVC.swift in Sources */,
 				8789525A20120CDC00056C11 /* FormFactory.swift in Sources */,
 				871C6E99200C9E23009619FF /* Subject+CoreDataClass.swift in Sources */,
+				8713DD01201B492F006B6C1B /* FormVC.swift in Sources */,
 				871C6EA1200C9E23009619FF /* Address+CoreDataClass.swift in Sources */,
 				871C6EA6200C9E23009619FF /* Subject+CoreDataProperties.swift in Sources */,
 				871C6E97200C9E23009619FF /* Worker+CoreDataProperties.swift in Sources */,
 				871C6E9E200C9E23009619FF /* Faculty+CoreDataProperties.swift in Sources */,
+				8713DCFF201B492F006B6C1B /* TypeSelectionVC.swift in Sources */,
 				871C6E96200C9E23009619FF /* EducationalDepartment+CoreDataClass.swift in Sources */,
 				871C6E93200C9E23009619FF /* Teacher+CoreDataClass.swift in Sources */,
 				847533221FEF8C1600C60091 /* DatabaseExplorer.xcdatamodeld in Sources */,
 				871C6EAA200C9E23009619FF /* University+CoreDataProperties.swift in Sources */,
+				8713DD07201B4A8C006B6C1B /* UniversityFormWC.swift in Sources */,
 				871C6E9C200C9E23009619FF /* University+CoreDataClass.swift in Sources */,
 				871C6E94200C9E23009619FF /* Group+CoreDataProperties.swift in Sources */,
-				87895263201214E600056C11 /* TypeSelectionVC.swift in Sources */,
-				8765AE292017431A000AE0A1 /* FormVC.swift in Sources */,
+				8713DD00201B492F006B6C1B /* TypeSelectionWC.swift in Sources */,
 				871C6EA3200C9E23009619FF /* EducationalDepartment+CoreDataProperties.swift in Sources */,
 				87895265201218C700056C11 /* Protocols.swift in Sources */,
 				871C6EAB200C9E23009619FF /* Worker+CoreDataClass.swift in Sources */,

@@ -8,42 +8,47 @@
 
 import Cocoa
 
-class UniversityForm: FormVC {
+class UniversityFormVC: FormVC {
     
     internal var nameLabel: NSTextField = {
         let label = NSTextField(string: "University Name:")
         label.isEditable = false
         label.isBordered = false
+        label.setContentHuggingPriority(NSLayoutConstraint.Priority(rawValue: 1000), for: .horizontal)
+        
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
     
     internal var addressLabel: NSTextField = {
-        let nameTF = NSTextField(string: "Address:")
-        nameTF.isEditable = false
-        nameTF.isBordered = false
-        nameTF.translatesAutoresizingMaskIntoConstraints = false
+        let label = NSTextField(string: "Address:")
+        label.isEditable = false
+        label.isBordered = false
+        label.setContentHuggingPriority(NSLayoutConstraint.Priority(rawValue: 1000), for: .horizontal)
+        label.translatesAutoresizingMaskIntoConstraints = false
         
-        return nameTF
+        return label
     }()
     
     internal var addressLatLbl: NSTextField = {
-        let nameTF = NSTextField(string: "Address Lat:")
-        nameTF.isEditable = false
-        nameTF.isBordered = false
-        nameTF.translatesAutoresizingMaskIntoConstraints = false
+        let label = NSTextField(string: "Address Lat:")
+        label.isEditable = false
+        label.isBordered = false
+        label.setContentHuggingPriority(NSLayoutConstraint.Priority(rawValue: 1000), for: .horizontal)
+        label.translatesAutoresizingMaskIntoConstraints = false
         
-        return nameTF
+        return label
     }()
     
     internal var addressLngLbl: NSTextField = {
-        let nameTF = NSTextField(string: "Address Lng:")
-        nameTF.isEditable = false
-        nameTF.isBordered = false
-        nameTF.translatesAutoresizingMaskIntoConstraints = false
+        let label = NSTextField(string: "Address Lng:")
+        label.isEditable = false
+        label.isBordered = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setContentHuggingPriority(NSLayoutConstraint.Priority(rawValue: 1000), for: .horizontal)
         
-        return nameTF
+        return label
     }()
     
     internal var universityNameTF: NSTextField = {
@@ -88,6 +93,11 @@ class UniversityForm: FormVC {
     //MARK: Lifecycle
     override func loadView() {
         self.view = NSView(frame: NSRect(x: 50.0, y: 50.0, width: 400.0, height: 300.0))
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        
         setupForm()
     }
     
@@ -102,6 +112,36 @@ class UniversityForm: FormVC {
         contentView.addSubview(nameLabel)
         documentView.addConstraint(NSLayoutConstraint(item: nameLabel, attribute: .leading, relatedBy: .equal, toItem: contentView, attribute: .leading, multiplier: 1.0, constant: 16.0))
         documentView.addConstraint(NSLayoutConstraint(item: nameLabel, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1.0, constant: 16.0))
+        
+        switch action {
+        case .edit(let object), .preview(let object):
+            if let university = object as? University,
+                let unName = university.name,
+                let unAddress = university.address?.formattedAddress,
+                let lat = university.address?.lat,
+                let lng = university.address?.lng {
+                
+                universityNameTF.stringValue = unName
+                addressTF.stringValue = unAddress
+                addressLatTF.stringValue = String(describing: lat)
+                addressLngTF.stringValue = String(describing: lng)
+                
+                if action == .preview(object) {
+                    universityNameTF.isEditable = false
+                    addressTF.isEditable = false
+                    addressLatTF.isEditable = false
+                    addressLngTF.isEditable = false
+                }
+            }
+        default: break
+        }
+        
+//        if action ==  {
+//            universityNameTF.isEditable = true
+//            addressTF.isEditable = true
+//            addressLngTF.isEditable = true
+//            addressLatTF.isEditable = true
+//        }
         
         contentView.addSubview(universityNameTF)
         
@@ -159,27 +199,35 @@ class UniversityForm: FormVC {
         documentView.addConstraint(NSLayoutConstraint(item: buttonsStackView, attribute: .top, relatedBy: .greaterThanOrEqual, toItem: addressLngTF, attribute: .bottom, multiplier: 1.0, constant: 24.0))
     }
     
-    override func validateInput() -> (Bool, Object?) {
-        guard universityNameTF.stringValue.count > 0, addressTF.stringValue.count > 0, addressLatTF.stringValue.count > 0, addressLngTF.stringValue.count > 0 else {
-            return (false, nil)
-        }
-        
-        let university = DataModel.shared.emptyObject(name: University.entityName, context: nil) as! University
-        university.name = universityNameTF.stringValue
-        
-        let universityAddress = DataModel.shared.emptyObject(name: Address.entityName, context: nil) as! Address
-        universityAddress.formattedAddress = addressTF.stringValue
-        universityAddress.lat = addressLatTF.doubleValue
-        universityAddress.lng = addressLngTF.doubleValue
-        universityAddress.building = university
+    override func validateInput() -> Bool {
+        return universityNameTF.stringValue.count > 0 && addressTF.stringValue.count > 0 && addressLatTF.stringValue.count > 0 && addressLngTF.stringValue.count > 0
     }
     
     //MARK: Custom Actions
     @objc private func okTapped() {
+        guard validateInput() else {
+            return
+        }
         
+        let university = DataModel.shared.emptyObject(name: University.entityName) as! University
+        university.name = universityNameTF.stringValue
+        
+        let universityAddress = DataModel.shared.emptyObject(name: Address.entityName) as! Address
+        universityAddress.formattedAddress = addressTF.stringValue
+        universityAddress.lat = addressLatTF.doubleValue
+        universityAddress.lng = addressLngTF.doubleValue
+        universityAddress.building = university
+        
+        university.address = universityAddress
+        if let major = majorObject {
+            university.majorID = major.uniqueID
+        }
+        
+        DataModel.shared.insertObject(withModel: university)
+        self.view.window?.close()
     }
     
     @objc private func cancelTapped() {
-        
+        self.view.window?.close()
     }
 }

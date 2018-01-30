@@ -10,7 +10,7 @@
         <!--Window Controller-->
         <scene sceneID="3Ud-Kn-ZsY">
             <objects>
-                <windowController storyboardIdentifier="TypeSelectionWC" id="DhY-wT-I4t" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="TypeSelectionWC" id="DhY-wT-I4t" customClass="TypeSelectionWC" customModule="DatabaseExplorer" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="wbf-Xg-QXZ">
                         <windowStyleMask key="styleMask" titled="YES"/>
                         <rect key="contentRect" x="117" y="1113" width="292" height="166"/>
