@@ -43,6 +43,18 @@ class FormVC: NSViewController {
     
     internal var scrollView: NSScrollView = NSScrollView()
     internal var contentView: NSView = NSView()
+    internal var lastUIElement: AnyObject?
+    
+    internal var okButton: NSButton = {
+        let ok = NSButton(title: "OK", target: self, action: #selector(okTapped))
+        ok.keyEquivalent = "\r"
+        return ok
+    }()
+    
+    internal var cancelButton: NSButton = {
+        let cancel = NSButton(title: "Cancel", target: self, action: #selector(cancelTapped))
+        return cancel
+    }()
     
     //MARK: Lifecycle
     override func loadView() {
@@ -58,6 +70,26 @@ class FormVC: NSViewController {
     internal func validateInput() -> Bool {
         assertionFailure("Override in subclass")
         return false
+    }
+    
+    internal func addButtons(_ buttons: [NSButton]) {
+        guard let documentView = scrollView.documentView else {
+            return
+        }
+        
+        let buttonsStackView = NSStackView(views: buttons)
+        buttonsStackView.orientation = .horizontal
+        buttonsStackView.alignment = .centerY
+        buttonsStackView.distribution = .fillProportionally
+        contentView.addSubview(buttonsStackView)
+        
+        let stackViewWidth: CGFloat = 110.0 * CGFloat(buttons.count)
+        
+        documentView.addConstraint(NSLayoutConstraint(item: buttonsStackView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: stackViewWidth))
+        documentView.addConstraint(NSLayoutConstraint(item: buttonsStackView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 100.0))
+        documentView.addConstraint(NSLayoutConstraint(item: buttonsStackView, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1.0, constant: 0.0))
+        documentView.addConstraint(NSLayoutConstraint(item: buttonsStackView, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1.0, constant: 24.0))
+        documentView.addConstraint(NSLayoutConstraint(item: buttonsStackView, attribute: .top, relatedBy: .greaterThanOrEqual, toItem: lastUIElement, attribute: .bottom, multiplier: 1.0, constant: 24.0))
     }
     
     //MARK: Private Methods
@@ -105,4 +137,12 @@ class FormVC: NSViewController {
         contentView.addConstraint(heightContraint)
     }
     
+    //MARK: Custom Actions
+    @objc internal func okTapped() {
+        self.view.window?.close()
+    }
+    
+    @objc internal func cancelTapped() {
+        self.view.window?.close()
+    }
 }

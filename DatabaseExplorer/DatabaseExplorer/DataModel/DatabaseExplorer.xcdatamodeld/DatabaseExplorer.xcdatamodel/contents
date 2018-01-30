@@ -14,7 +14,7 @@
         <relationship name="faculty" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Faculty" inverseName="departments" inverseEntity="Faculty" syncable="YES"/>
         <relationship name="subjects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Subject" inverseName="department" inverseEntity="Subject" syncable="YES"/>
     </entity>
-    <entity name="EducationalDepartment" representedClassName="EducationalDepartment" isAbstract="YES" parentEntity="Building" syncable="YES">
+    <entity name="EducationalDepartment" representedClassName="EducationalDepartment" isAbstract="YES" parentEntity="Object" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="webSiteURL" optional="YES" attributeType="String" syncable="YES"/>

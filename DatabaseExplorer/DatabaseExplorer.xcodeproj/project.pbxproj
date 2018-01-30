@@ -52,6 +52,8 @@
 		87895258201208D300056C11 /* FormPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87895257201208D300056C11 /* FormPresenter.swift */; };
 		8789525A20120CDC00056C11 /* FormFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8789525920120CDC00056C11 /* FormFactory.swift */; };
 		87895265201218C700056C11 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87895264201218C700056C11 /* Protocols.swift */; };
+		87C491DE2020B574008DB497 /* FacultyWC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C491DD2020B574008DB497 /* FacultyWC.swift */; };
+		87C491E02020B58D008DB497 /* FacultyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C491DF2020B58D008DB497 /* FacultyVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +105,8 @@
 		87895257201208D300056C11 /* FormPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormPresenter.swift; sourceTree = "<group>"; };
 		8789525920120CDC00056C11 /* FormFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFactory.swift; sourceTree = "<group>"; };
 		87895264201218C700056C11 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		87C491DD2020B574008DB497 /* FacultyWC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyWC.swift; sourceTree = "<group>"; };
+		87C491DF2020B58D008DB497 /* FacultyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +178,8 @@
 		8713DCF7201B492F006B6C1B /* Faculty */ = {
 			isa = PBXGroup;
 			children = (
+				87C491DD2020B574008DB497 /* FacultyWC.swift */,
+				87C491DF2020B58D008DB497 /* FacultyVC.swift */,
 			);
 			path = Faculty;
 			sourceTree = "<group>";
@@ -375,6 +381,7 @@
 				871C6E95200C9E23009619FF /* Object+CoreDataProperties.swift in Sources */,
 				871C6EAE200C9E23009619FF /* Department+CoreDataProperties.swift in Sources */,
 				8713DD02201B492F006B6C1B /* UniversityFormVC.swift in Sources */,
+				87C491E02020B58D008DB497 /* FacultyVC.swift in Sources */,
 				8789525A20120CDC00056C11 /* FormFactory.swift in Sources */,
 				871C6E99200C9E23009619FF /* Subject+CoreDataClass.swift in Sources */,
 				8713DD01201B492F006B6C1B /* FormVC.swift in Sources */,
@@ -392,6 +399,7 @@
 				871C6E94200C9E23009619FF /* Group+CoreDataProperties.swift in Sources */,
 				8713DD00201B492F006B6C1B /* TypeSelectionWC.swift in Sources */,
 				871C6EA3200C9E23009619FF /* EducationalDepartment+CoreDataProperties.swift in Sources */,
+				87C491DE2020B574008DB497 /* FacultyWC.swift in Sources */,
 				87895265201218C700056C11 /* Protocols.swift in Sources */,
 				871C6EAB200C9E23009619FF /* Worker+CoreDataClass.swift in Sources */,
 			);

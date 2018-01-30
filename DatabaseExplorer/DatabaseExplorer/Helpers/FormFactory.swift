@@ -15,17 +15,15 @@ class FormFactory {
             return nil
         }
         
-        let typeOfObject = objectType ?? type(of: object!)
+        let classStr = objectType != nil ? String(describing: objectType!) : String(describing: type(of: object!))
         var formWC: FormWC?
         
-        if typeOfObject.objectSpecifier() == University.self.objectSpecifier() {
+        if classStr == String(describing: University.self) {
             formWC = UniversityFormWC()
-        } else if typeOfObject == Student.self {
+        } else if classStr == String(describing: Faculty.self) {
+            formWC = FacultyWC()
+        } else if classStr == String(describing: Student.self) {
             
-        } else if typeOfObject == Object.Type.self {
-            print("Object")
-        } else {
-            print(University.self)
         }
         
         return formWC

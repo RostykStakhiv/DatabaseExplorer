@@ -78,17 +78,6 @@ class UniversityFormVC: FormVC {
         
         return addressLngTF
     }()
-    
-    private var okButton: NSButton = {
-        let ok = NSButton(title: "OK", target: self, action: #selector(okTapped))
-        ok.keyEquivalent = "\r"
-        return ok
-    }()
-    
-    private var cancelButton: NSButton = {
-        let cancel = NSButton(title: "Cancel", target: self, action: #selector(cancelTapped))
-        return cancel
-    }()
 
     //MARK: Lifecycle
     override func loadView() {
@@ -109,10 +98,6 @@ class UniversityFormVC: FormVC {
         guard let documentView = scrollView.documentView else {
             return
         }
-        
-        contentView.addSubview(nameLabel)
-        documentView.addConstraint(NSLayoutConstraint(item: nameLabel, attribute: .leading, relatedBy: .equal, toItem: contentView, attribute: .leading, multiplier: 1.0, constant: 16.0))
-        documentView.addConstraint(NSLayoutConstraint(item: nameLabel, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1.0, constant: 16.0))
         
         switch action {
         case .edit(let object), .preview(let object):
@@ -136,6 +121,10 @@ class UniversityFormVC: FormVC {
             }
         default: break
         }
+        
+        contentView.addSubview(nameLabel)
+        documentView.addConstraint(NSLayoutConstraint(item: nameLabel, attribute: .leading, relatedBy: .equal, toItem: contentView, attribute: .leading, multiplier: 1.0, constant: 16.0))
+        documentView.addConstraint(NSLayoutConstraint(item: nameLabel, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1.0, constant: 16.0))
         
         contentView.addSubview(universityNameTF)
         
@@ -180,25 +169,15 @@ class UniversityFormVC: FormVC {
         documentView.addConstraint(NSLayoutConstraint(item: addressLngTF, attribute: .centerY, relatedBy: .equal, toItem: addressLngLbl, attribute: .centerY, multiplier: 1.0, constant: 0.0))
         documentView.addConstraint(NSLayoutConstraint(item: addressLngTF, attribute: .height, relatedBy: .equal, toItem: addressLatTF, attribute: .height, multiplier: 1.0, constant: 0.0))
         
-        let buttonsStackView = NSStackView(views: [okButton, cancelButton])
-        buttonsStackView.orientation = .horizontal
-        buttonsStackView.alignment = .centerY
-        buttonsStackView.distribution = .fillProportionally
-        contentView.addSubview(buttonsStackView)
-        
-        documentView.addConstraint(NSLayoutConstraint(item: buttonsStackView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 220.0))
-        documentView.addConstraint(NSLayoutConstraint(item: buttonsStackView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 100.0))
-        documentView.addConstraint(NSLayoutConstraint(item: buttonsStackView, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1.0, constant: 0.0))
-        documentView.addConstraint(NSLayoutConstraint(item: buttonsStackView, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1.0, constant: 24.0))
-        documentView.addConstraint(NSLayoutConstraint(item: buttonsStackView, attribute: .top, relatedBy: .greaterThanOrEqual, toItem: addressLngTF, attribute: .bottom, multiplier: 1.0, constant: 24.0))
+        self.lastUIElement = addressLngTF
+        self.addButtons([okButton, cancelButton])
     }
     
     override func validateInput() -> Bool {
         return universityNameTF.stringValue.count > 0 && addressTF.stringValue.count > 0 && addressLatTF.stringValue.count > 0 && addressLngTF.stringValue.count > 0
     }
     
-    //MARK: Custom Actions
-    @objc private func okTapped() {
+    override func okTapped() {
         guard validateInput() else {
             self.view.window?.close()
             return
@@ -234,11 +213,5 @@ class UniversityFormVC: FormVC {
             case .edit(_), .preview(_): break
             }
         }
-        
-        self.view.window?.close()
-    }
-    
-    @objc private func cancelTapped() {
-        self.view.window?.close()
     }
 }
