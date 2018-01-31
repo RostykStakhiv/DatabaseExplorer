@@ -180,10 +180,9 @@ class DataModel {
     
     //MARK: Fetching
     func fetchRootObjects() -> [Object] {
-        guard context.hasChanges == true else {
-            return rootObjectsCache
-        }
-        
+//        guard context.hasChanges == true else {
+//            return rootObjectsCache
+//        }
         let results = getRootObjectsFromDatabase()
         rootObjectsCache = results
         return results

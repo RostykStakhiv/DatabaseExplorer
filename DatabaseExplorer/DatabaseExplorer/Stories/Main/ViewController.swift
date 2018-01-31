@@ -56,7 +56,7 @@ class ViewController: NSViewController {
         }
         
         FormPresenter.presentObjectInfoForm(forObject: selectedObject, withAction: .edit(selectedObject), completion: { (_) in
-            self.outlineView.reloadData()
+            //self.outlineView.reloadData()
         })
     }
     
