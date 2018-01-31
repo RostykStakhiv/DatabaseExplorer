@@ -2,7 +2,7 @@
 //  Department+CoreDataProperties.swift
 //  DatabaseExplorer
 //
-//  Created by KindGeek on 1/15/18.
+//  Created by admin on 1/31/18.
 //  Copyright © 2018 rstakhiv. All rights reserved.
 //
 //
@@ -19,6 +19,7 @@ extension Department {
 
     @NSManaged public var faculty: Faculty?
     @NSManaged public var subjects: NSSet?
+    @NSManaged public var headTeacher: Teacher?
 
 }
 

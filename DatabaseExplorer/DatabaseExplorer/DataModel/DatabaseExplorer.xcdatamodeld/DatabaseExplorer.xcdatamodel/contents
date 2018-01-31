@@ -9,12 +9,12 @@
     <entity name="Building" representedClassName="Building" isAbstract="YES" parentEntity="Object" syncable="YES">
         <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="building" inverseEntity="Address" syncable="YES"/>
     </entity>
-    <entity name="College" representedClassName="College" parentEntity="EducationalDepartment" syncable="YES"/>
-    <entity name="Dean" representedClassName="Dean" parentEntity="Worker" syncable="YES" codeGenerationType="class">
+    <entity name="Dean" representedClassName="Dean" parentEntity="Worker" syncable="YES">
         <relationship name="faculty" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Faculty" inverseName="dean" inverseEntity="Faculty" syncable="YES"/>
     </entity>
     <entity name="Department" representedClassName="Department" parentEntity="Object" syncable="YES">
         <relationship name="faculty" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Faculty" inverseName="departments" inverseEntity="Faculty" syncable="YES"/>
+        <relationship name="headTeacher" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Teacher" inverseName="department" inverseEntity="Teacher" syncable="YES"/>
         <relationship name="subjects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Subject" inverseName="department" inverseEntity="Subject" syncable="YES"/>
     </entity>
     <entity name="EducationalDepartment" representedClassName="EducationalDepartment" isAbstract="YES" parentEntity="Object" syncable="YES">
@@ -44,7 +44,7 @@
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sex" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
     </entity>
-    <entity name="Rector" representedClassName="Rector" parentEntity="Worker" syncable="YES" codeGenerationType="class">
+    <entity name="Rector" representedClassName="Rector" parentEntity="Worker" syncable="YES">
         <relationship name="university" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="University" inverseName="rector" inverseEntity="University" syncable="YES"/>
     </entity>
     <entity name="Student" representedClassName="Student" parentEntity="Person" syncable="YES">
@@ -60,6 +60,7 @@
         <relationship name="teacher" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Teacher" inverseName="subjects" inverseEntity="Teacher" syncable="YES"/>
     </entity>
     <entity name="Teacher" representedClassName="Teacher" parentEntity="Worker" syncable="YES">
+        <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="headTeacher" inverseEntity="Department" syncable="YES"/>
         <relationship name="subjects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Subject" inverseName="teacher" inverseEntity="Subject" syncable="YES"/>
     </entity>
     <entity name="University" representedClassName="University" parentEntity="Building" syncable="YES">
@@ -73,8 +74,7 @@
     <elements>
         <element name="Address" positionX="7" positionY="90" width="128" height="105"/>
         <element name="Building" positionX="-432" positionY="-180" width="128" height="60"/>
-        <element name="College" positionX="-297" positionY="135" width="128" height="43"/>
-        <element name="Department" positionX="-522" positionY="153" width="128" height="75"/>
+        <element name="Department" positionX="-522" positionY="153" width="128" height="90"/>
         <element name="EducationalDepartment" positionX="-542" positionY="-9" width="128" height="90"/>
         <element name="Faculty" positionX="79" positionY="-12" width="128" height="105"/>
         <element name="Group" positionX="448" positionY="96" width="128" height="75"/>
@@ -82,7 +82,7 @@
         <element name="Person" positionX="151" positionY="-261" width="128" height="103"/>
         <element name="Student" positionX="268" positionY="-99" width="128" height="90"/>
         <element name="Subject" positionX="-270" positionY="-57" width="128" height="120"/>
-        <element name="Teacher" positionX="268" positionY="144" width="128" height="58"/>
+        <element name="Teacher" positionX="268" positionY="144" width="128" height="75"/>
         <element name="University" positionX="-92" positionY="-234" width="128" height="75"/>
         <element name="Worker" positionX="151" positionY="231" width="128" height="75"/>
         <element name="Dean" positionX="-342" positionY="-117" width="128" height="60"/>

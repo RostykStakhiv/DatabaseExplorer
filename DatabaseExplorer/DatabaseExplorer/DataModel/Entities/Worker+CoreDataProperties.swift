@@ -2,7 +2,7 @@
 //  Worker+CoreDataProperties.swift
 //  DatabaseExplorer
 //
-//  Created by KindGeek on 1/15/18.
+//  Created by admin on 1/31/18.
 //  Copyright © 2018 rstakhiv. All rights reserved.
 //
 //
@@ -18,5 +18,6 @@ extension Worker {
     }
 
     @NSManaged public var salary: Double
+    @NSManaged public var position: String?
 
 }

@@ -39,6 +39,8 @@ class FormVC: NSViewController {
         }
     }
     
+    var completion: ((_ object: Object) -> Void)?
+    
     internal var object: Object?
     
     internal var scrollView: NSScrollView = NSScrollView()

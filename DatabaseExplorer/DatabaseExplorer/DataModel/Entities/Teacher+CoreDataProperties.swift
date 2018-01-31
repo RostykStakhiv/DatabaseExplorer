@@ -2,7 +2,7 @@
 //  Teacher+CoreDataProperties.swift
 //  DatabaseExplorer
 //
-//  Created by KindGeek on 1/15/18.
+//  Created by admin on 1/31/18.
 //  Copyright © 2018 rstakhiv. All rights reserved.
 //
 //
@@ -18,6 +18,7 @@ extension Teacher {
     }
 
     @NSManaged public var subjects: NSSet?
+    @NSManaged public var department: Department?
 
 }
 

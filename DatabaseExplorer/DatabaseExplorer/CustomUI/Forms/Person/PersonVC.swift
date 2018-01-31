@@ -87,7 +87,11 @@ class PersonVC: FormVC {
         super.viewWillAppear()
         
         setupForm()
-        self.view.window?.title = object?.name ?? "New Person"
+        if let person = object as? Person {
+            self.view.window?.title = "\(person.firstName) \(person.lastName)"
+        } else {
+            self.view.window?.title = "New Person"
+        }
     }
     
     //MARK: Overrides
