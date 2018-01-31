@@ -213,5 +213,7 @@ class UniversityFormVC: FormVC {
             case .edit(_), .preview(_): break
             }
         }
+        
+        self.view.window?.close()
     }
 }

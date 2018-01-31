@@ -34,11 +34,12 @@ class FormPresenter {
         FormPresenter.presentWindowController(form)
     }
     
-    class func presentCreateObjectForm(withType objectType: Object.Type) {
-        guard let form = FormFactory.createForm(forObjectType: objectType) else {
+    class func presentCreateObjectForm(withType objectType: Object.Type, majorObject: Object? = nil) {
+        guard let form = FormFactory.createForm(forObjectType: objectType), let contentVC = form.window?.contentViewController as? FormVC else {
             return
         }
         
+        contentVC.majorObject = majorObject
         FormPresenter.presentWindowController(form)
     }
     

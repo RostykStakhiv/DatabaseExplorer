@@ -36,7 +36,7 @@ class TypeSelectionVC: NSViewController {
     private func setupTypes() {
         if let major = majorObject {
             if major is University {
-                types = [Faculty.self, Teacher.self]
+                types = [Faculty.self, Person.self]
             } else if major is Faculty {
                 types = [Department.self]
             } else if major is Department {

@@ -173,7 +173,43 @@ class FacultyVC: FormVC {
     }
     
     override func validateInput() -> Bool {
-        return false
+        return nameTF.stringValue.count > 0 && emailTF.stringValue.count > 0 && phoneTF.stringValue.count > 0 && websiteTF.stringValue.count > 0
+    }
+    
+    override func okTapped() {
+        guard validateInput() else {
+            self.view.window?.close()
+            return
+        }
+        
+        var faculty: Faculty?
+        
+        switch action {
+        case .create:
+            faculty = DataModel.shared.emptyObject(name: Faculty.entityName) as? Faculty
+        case .edit(let object):
+            faculty = object as? Faculty
+        case .preview(_): break
+        }
+        
+        if let fetchedFaculty = faculty {
+            fetchedFaculty.name = nameTF.stringValue
+            fetchedFaculty.email = emailTF.stringValue
+            fetchedFaculty.phoneNumber = phoneTF.stringValue
+            fetchedFaculty.webSiteURL = websiteTF.stringValue
+            
+            if let major = majorObject {
+                fetchedFaculty.majorID = major.uniqueID
+            }
+            
+            switch action {
+            case .create:
+                DataModel.shared.insertObject(withModel: fetchedFaculty)
+            case .edit(_), .preview(_): break
+            }
+        }
+        
+        self.view.window?.close()
     }
     
 }

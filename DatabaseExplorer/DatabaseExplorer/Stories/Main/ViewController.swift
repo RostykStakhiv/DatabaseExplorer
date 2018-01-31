@@ -36,7 +36,7 @@ class ViewController: NSViewController {
     //MARK: Menu Handling
     @objc private func handleAddMenuButton() {
         FormPresenter.presentNewObjectTypeSelectionForm(forMajorObject: selectedObject, completion: { (selectedType) in
-            FormPresenter.presentCreateObjectForm(withType: selectedType)
+            FormPresenter.presentCreateObjectForm(withType: selectedType, majorObject: self.selectedObject)
         })
     }
     
@@ -55,6 +55,15 @@ class ViewController: NSViewController {
         
         FormPresenter.presentObjectInfoForm(forObject: selectedObject, withAction: .edit(selectedObject))
     }
+    
+    @objc private func handleDeleteMenuButton() {
+        guard let selectedObject = selectedObject else {
+            return
+        }
+        
+        DataModel.shared.context.delete(selectedObject)
+        outlineView.reloadData()
+    }
 }
 
 extension ViewController: NSMenuDelegate {
@@ -71,6 +80,7 @@ extension ViewController: NSMenuDelegate {
         
         menu.addItem(NSMenuItem(title: "Edit", action: #selector(handleEditMenuButton), keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: "Preview", action: #selector(handleShowInfoMenuButton), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Delete", action: #selector(handleDeleteMenuButton), keyEquivalent: ""))
         selectedObject = outlineView.item(atRow: row) as? Object
     }
 }

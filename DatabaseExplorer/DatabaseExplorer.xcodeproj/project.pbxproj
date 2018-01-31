@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8475331E1FEF8BEF00C60091 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8475331C1FEF8BEF00C60091 /* DataModel.swift */; };
 		847533221FEF8C1600C60091 /* DatabaseExplorer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 847533201FEF8C1600C60091 /* DatabaseExplorer.xcdatamodeld */; };
+		849427EC20212A1C00684AD1 /* PersonWC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849427EB20212A1B00684AD1 /* PersonWC.swift */; };
+		849427EE20212A3100684AD1 /* PersonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849427ED20212A3100684AD1 /* PersonVC.swift */; };
 		84EEF54C1F8931EC00377293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EEF54B1F8931EC00377293 /* AppDelegate.swift */; };
 		84EEF5531F8931EC00377293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84EEF5521F8931EC00377293 /* Assets.xcassets */; };
 		8713DCFF201B492F006B6C1B /* TypeSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8713DCF9201B492F006B6C1B /* TypeSelectionVC.swift */; };
@@ -59,6 +61,8 @@
 /* Begin PBXFileReference section */
 		8475331C1FEF8BEF00C60091 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		847533211FEF8C1600C60091 /* DatabaseExplorer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DatabaseExplorer.xcdatamodel; sourceTree = "<group>"; };
+		849427EB20212A1B00684AD1 /* PersonWC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonWC.swift; sourceTree = "<group>"; };
+		849427ED20212A3100684AD1 /* PersonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonVC.swift; sourceTree = "<group>"; };
 		84EEF5481F8931EC00377293 /* DatabaseExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DatabaseExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EEF54B1F8931EC00377293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84EEF5521F8931EC00377293 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -131,6 +135,15 @@
 			path = DataModel;
 			sourceTree = "<group>";
 		};
+		849427EA20212A1B00684AD1 /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				849427EB20212A1B00684AD1 /* PersonWC.swift */,
+				849427ED20212A3100684AD1 /* PersonVC.swift */,
+			);
+			path = Person;
+			sourceTree = "<group>";
+		};
 		84EEF53F1F8931EC00377293 = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +180,7 @@
 			children = (
 				8713DD04201B4968006B6C1B /* FormWC.swift */,
 				8713DCFB201B492F006B6C1B /* FormVC.swift */,
+				849427EA20212A1B00684AD1 /* Person */,
 				8713DCF7201B492F006B6C1B /* Faculty */,
 				8713DCF8201B492F006B6C1B /* TypeSelection */,
 				8713DCFC201B492F006B6C1B /* University */,
@@ -187,8 +201,8 @@
 		8713DCF8201B492F006B6C1B /* TypeSelection */ = {
 			isa = PBXGroup;
 			children = (
-				8713DCF9201B492F006B6C1B /* TypeSelectionVC.swift */,
 				8713DCFA201B492F006B6C1B /* TypeSelectionWC.swift */,
+				8713DCF9201B492F006B6C1B /* TypeSelectionVC.swift */,
 			);
 			path = TypeSelection;
 			sourceTree = "<group>";
@@ -373,6 +387,7 @@
 				8475331E1FEF8BEF00C60091 /* DataModel.swift in Sources */,
 				871C6EA2200C9E23009619FF /* College+CoreDataProperties.swift in Sources */,
 				871C6E9A200C9E23009619FF /* Student+CoreDataClass.swift in Sources */,
+				849427EE20212A3100684AD1 /* PersonVC.swift in Sources */,
 				84EEF54C1F8931EC00377293 /* AppDelegate.swift in Sources */,
 				871C6EA9200C9E23009619FF /* Department+CoreDataClass.swift in Sources */,
 				871C6EB3200C9F6D009619FF /* ViewController.swift in Sources */,
@@ -386,6 +401,7 @@
 				871C6E99200C9E23009619FF /* Subject+CoreDataClass.swift in Sources */,
 				8713DD01201B492F006B6C1B /* FormVC.swift in Sources */,
 				871C6EA1200C9E23009619FF /* Address+CoreDataClass.swift in Sources */,
+				849427EC20212A1C00684AD1 /* PersonWC.swift in Sources */,
 				871C6EA6200C9E23009619FF /* Subject+CoreDataProperties.swift in Sources */,
 				871C6E97200C9E23009619FF /* Worker+CoreDataProperties.swift in Sources */,
 				871C6E9E200C9E23009619FF /* Faculty+CoreDataProperties.swift in Sources */,
