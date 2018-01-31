@@ -169,10 +169,13 @@ class PersonVC: FormVC {
         documentView.addConstraint(NSLayoutConstraint(item: birthdayPicker, attribute: .leading, relatedBy: .equal, toItem: sexPopUpButton, attribute: .leading, multiplier: 1.0, constant: 0.0))
         documentView.addConstraint(NSLayoutConstraint(item: birthdayPicker, attribute: .centerY, relatedBy: .equal, toItem: birthdayLabel, attribute: .centerY, multiplier: 1.0, constant: 0.0))
         documentView.addConstraint(NSLayoutConstraint(item: birthdayPicker, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 100.0))
-        documentView.addConstraint(NSLayoutConstraint(item: birthdayPicker, attribute: .height, relatedBy: .equal, toItem: birthdayLabel, attribute: .height, multiplier: 1.0, constant: 0.0))
-        
-        
-        self.lastUIElement = birthdayLabel
+        //documentView.addConstraint(NSLayoutConstraint(item: birthdayPicker, attribute: .height, relatedBy: .equal, toItem: birthdayLabel, attribute: .height, multiplier: 1.0, constant: 0.0))
+    }
+    
+    override var lastUIElement: AnyObject? {
+        get {
+            return birthdayLabel
+        }
     }
     
     override func validateInput() -> Bool {
@@ -208,7 +211,9 @@ class PersonVC: FormVC {
             switch action {
             case .create:
                 DataModel.shared.insertObject(withModel: fetchedPerson)
-            case .edit(_), .preview(_): break
+                completion?(fetchedPerson)
+            case .edit(_): completion?(fetchedPerson)
+            case .preview(_): break
             }
         }
         

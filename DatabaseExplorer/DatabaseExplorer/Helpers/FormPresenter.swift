@@ -25,21 +25,23 @@ class FormPresenter {
         FormPresenter.presentWindowController(typeSelectionWC)
     }
     
-    class func presentObjectInfoForm(forObject object: Object, withAction action: FormVC.ObjectDetailsFormAction) {
+    class func presentObjectInfoForm(forObject object: Object, withAction action: FormVC.ObjectDetailsFormAction, completion: FormVC.ObjectFormCompletion? = nil) {
         guard let form = FormFactory.createForm(object: object), let formContentVC = form.window?.contentViewController as? FormVC else {
             return
         }
         
         formContentVC.action = action
+        formContentVC.completion = completion
         FormPresenter.presentWindowController(form)
     }
     
-    class func presentCreateObjectForm(withType objectType: Object.Type, majorObject: Object? = nil) {
+    class func presentCreateObjectForm(withType objectType: Object.Type, majorObject: Object? = nil, completion: FormVC.ObjectFormCompletion? = nil) {
         guard let form = FormFactory.createForm(forObjectType: objectType), let contentVC = form.window?.contentViewController as? FormVC else {
             return
         }
         
         contentVC.majorObject = majorObject
+        contentVC.completion = completion
         FormPresenter.presentWindowController(form)
     }
     

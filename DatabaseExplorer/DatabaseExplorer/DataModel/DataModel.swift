@@ -170,6 +170,11 @@ class DataModel {
         objectModel.uniqueID = self.lastCreatedObjectID + 1
         lastCreatedObjectID = lastCreatedObjectID + 1
         objectModel.createDate = Date() as NSDate
+        
+        if objectModel.majorID == 0 {
+            rootObjectsCache.append(objectModel)
+        }
+        
         saveContext()
     }
     

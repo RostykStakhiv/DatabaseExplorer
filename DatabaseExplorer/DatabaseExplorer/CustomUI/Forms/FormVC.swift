@@ -10,6 +10,8 @@ import Cocoa
 
 class FormVC: NSViewController {
     
+    typealias ObjectFormCompletion = (_ object: Object) -> Void
+    
     enum ObjectDetailsFormAction {
         case create
         case edit(Object)
@@ -39,13 +41,17 @@ class FormVC: NSViewController {
         }
     }
     
-    var completion: ((_ object: Object) -> Void)?
+    var completion: ObjectFormCompletion?
     
     internal var object: Object?
     
     internal var scrollView: NSScrollView = NSScrollView()
     internal var contentView: NSView = NSView()
-    internal var lastUIElement: AnyObject?
+    internal var lastUIElement: AnyObject? {
+        get {
+            return nil
+        }
+    }
     
     internal var okButton: NSButton = {
         let ok = NSButton(title: "OK", target: self, action: #selector(okTapped))

@@ -26,6 +26,10 @@ class FormFactory {
             formWC = DepartmentWC()
         } else if classStr == String(describing: Person.self) {
             formWC = PersonWC()
+        } else if classStr == String(describing: Worker.self) {
+            formWC = WorkerWC()
+        } else if classStr == String(describing: Teacher.self) {
+            formWC = TeacherWC()
         }
         
         return formWC

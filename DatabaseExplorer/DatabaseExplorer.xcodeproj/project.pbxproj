@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84463E652021B8090002E797 /* WorkerWC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84463E642021B8090002E797 /* WorkerWC.swift */; };
+		84463E672021B81B0002E797 /* WorkerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84463E662021B81B0002E797 /* WorkerVC.swift */; };
+		84463E692021BE400002E797 /* TeacherWC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84463E682021BE400002E797 /* TeacherWC.swift */; };
+		84463E6B2021BE590002E797 /* TeacherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84463E6A2021BE590002E797 /* TeacherVC.swift */; };
 		8475331E1FEF8BEF00C60091 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8475331C1FEF8BEF00C60091 /* DataModel.swift */; };
 		847533221FEF8C1600C60091 /* DatabaseExplorer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 847533201FEF8C1600C60091 /* DatabaseExplorer.xcdatamodeld */; };
 		849427EC20212A1C00684AD1 /* PersonWC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849427EB20212A1B00684AD1 /* PersonWC.swift */; };
@@ -63,6 +67,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84463E642021B8090002E797 /* WorkerWC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerWC.swift; sourceTree = "<group>"; };
+		84463E662021B81B0002E797 /* WorkerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerVC.swift; sourceTree = "<group>"; };
+		84463E682021BE400002E797 /* TeacherWC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherWC.swift; sourceTree = "<group>"; };
+		84463E6A2021BE590002E797 /* TeacherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherVC.swift; sourceTree = "<group>"; };
 		8475331C1FEF8BEF00C60091 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		847533211FEF8C1600C60091 /* DatabaseExplorer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DatabaseExplorer.xcdatamodel; sourceTree = "<group>"; };
 		849427EB20212A1B00684AD1 /* PersonWC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonWC.swift; sourceTree = "<group>"; };
@@ -148,6 +156,10 @@
 			children = (
 				849427EB20212A1B00684AD1 /* PersonWC.swift */,
 				849427ED20212A3100684AD1 /* PersonVC.swift */,
+				84463E642021B8090002E797 /* WorkerWC.swift */,
+				84463E662021B81B0002E797 /* WorkerVC.swift */,
+				84463E682021BE400002E797 /* TeacherWC.swift */,
+				84463E6A2021BE590002E797 /* TeacherVC.swift */,
 			);
 			path = Person;
 			sourceTree = "<group>";
@@ -397,6 +409,8 @@
 				84E7F7852021A477003EF302 /* DepartmentWC.swift in Sources */,
 				871C6EB9200CC689009619FF /* Constants.swift in Sources */,
 				871C6E9D200C9E23009619FF /* Object+CoreDataClass.swift in Sources */,
+				84463E672021B81B0002E797 /* WorkerVC.swift in Sources */,
+				84463E6B2021BE590002E797 /* TeacherVC.swift in Sources */,
 				871C6E9B200C9E23009619FF /* Person+CoreDataProperties.swift in Sources */,
 				871C6EAD200C9E23009619FF /* Group+CoreDataClass.swift in Sources */,
 				84E7F77F2021A17B003EF302 /* Rector+CoreDataProperties.swift in Sources */,
@@ -408,6 +422,7 @@
 				84E7F77E2021A17B003EF302 /* Rector+CoreDataClass.swift in Sources */,
 				84E7F77D2021A17B003EF302 /* Dean+CoreDataProperties.swift in Sources */,
 				8713DD05201B4968006B6C1B /* FormWC.swift in Sources */,
+				84463E692021BE400002E797 /* TeacherWC.swift in Sources */,
 				8475331E1FEF8BEF00C60091 /* DataModel.swift in Sources */,
 				871C6E9A200C9E23009619FF /* Student+CoreDataClass.swift in Sources */,
 				849427EE20212A3100684AD1 /* PersonVC.swift in Sources */,
@@ -440,6 +455,7 @@
 				8713DD00201B492F006B6C1B /* TypeSelectionWC.swift in Sources */,
 				871C6EA3200C9E23009619FF /* EducationalDepartment+CoreDataProperties.swift in Sources */,
 				87C491DE2020B574008DB497 /* FacultyWC.swift in Sources */,
+				84463E652021B8090002E797 /* WorkerWC.swift in Sources */,
 				87895265201218C700056C11 /* Protocols.swift in Sources */,
 				84E7F77C2021A17B003EF302 /* Dean+CoreDataClass.swift in Sources */,
 				871C6EAB200C9E23009619FF /* Worker+CoreDataClass.swift in Sources */,

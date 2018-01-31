@@ -36,7 +36,9 @@ class ViewController: NSViewController {
     //MARK: Menu Handling
     @objc private func handleAddMenuButton() {
         FormPresenter.presentNewObjectTypeSelectionForm(forMajorObject: selectedObject, completion: { (selectedType) in
-            FormPresenter.presentCreateObjectForm(withType: selectedType, majorObject: self.selectedObject)
+            FormPresenter.presentCreateObjectForm(withType: selectedType, majorObject: self.selectedObject, completion: { (_) in
+                self.outlineView.reloadData()
+            })
         })
     }
     
@@ -53,7 +55,9 @@ class ViewController: NSViewController {
             return
         }
         
-        FormPresenter.presentObjectInfoForm(forObject: selectedObject, withAction: .edit(selectedObject))
+        FormPresenter.presentObjectInfoForm(forObject: selectedObject, withAction: .edit(selectedObject), completion: { (_) in
+            self.outlineView.reloadData()
+        })
     }
     
     @objc private func handleDeleteMenuButton() {

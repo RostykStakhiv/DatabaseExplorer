@@ -169,8 +169,13 @@ class UniversityFormVC: FormVC {
         documentView.addConstraint(NSLayoutConstraint(item: addressLngTF, attribute: .centerY, relatedBy: .equal, toItem: addressLngLbl, attribute: .centerY, multiplier: 1.0, constant: 0.0))
         documentView.addConstraint(NSLayoutConstraint(item: addressLngTF, attribute: .height, relatedBy: .equal, toItem: addressLatTF, attribute: .height, multiplier: 1.0, constant: 0.0))
         
-        self.lastUIElement = addressLngTF
         self.addButtons([okButton, cancelButton])
+    }
+    
+    override var lastUIElement: AnyObject? {
+        get {
+            return addressLngTF
+        }
     }
     
     override func validateInput() -> Bool {
@@ -210,7 +215,9 @@ class UniversityFormVC: FormVC {
             switch action {
             case .create:
                 DataModel.shared.insertObject(withModel: fetchedUnivesity)
-            case .edit(_), .preview(_): break
+                completion?(fetchedUnivesity)
+            case .edit(_): completion?(fetchedUnivesity)
+            case .preview(_): break
             }
         }
         

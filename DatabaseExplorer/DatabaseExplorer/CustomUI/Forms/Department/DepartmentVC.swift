@@ -117,9 +117,13 @@ class DepartmentVC: FormVC {
         documentView.addConstraint(NSLayoutConstraint(item: nameTF, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 220.0))
         documentView.addConstraint(NSLayoutConstraint(item: nameTF, attribute: .height, relatedBy: .equal, toItem: departmentNameLabel, attribute: .height, multiplier: 1.2, constant: 0.0))
         
-        
-        self.lastUIElement = editTeacherButton
         self.addButtons([okButton, cancelButton])
+    }
+    
+    override var lastUIElement: AnyObject? {
+        get {
+            return editTeacherButton
+        }
     }
     
     override func validateInput() -> Bool {
@@ -153,7 +157,10 @@ class DepartmentVC: FormVC {
             switch action {
             case .create:
                 DataModel.shared.insertObject(withModel: fetchedDepartment)
-            case .edit(_), .preview(_): break
+                completion?(fetchedDepartment)
+            case .edit(_):
+                completion?(fetchedDepartment)
+            case .preview(_): break
             }
         }
         
@@ -162,7 +169,15 @@ class DepartmentVC: FormVC {
     
     //MARK: Private handlers
     @objc private func handleEditButton() {
-        
+        if let teacher = tempHeadTeacher {
+            FormPresenter.presentObjectInfoForm(forObject: teacher, withAction: .edit(teacher), completion: { (newTeacher) in
+                self.tempHeadTeacher = newTeacher as? Teacher
+            })
+        } else {
+            FormPresenter.presentCreateObjectForm(withType: Teacher.self, majorObject: nil, completion: { (teacher) in
+                self.tempHeadTeacher = teacher as? Teacher
+            })
+        }
     }
     
 }
